@@ -1,5 +1,38 @@
-body {
+* {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+}
+
+.header {
+  display: flex;
+  border-bottom: 1px solid black;
+}
+
+.header-left {
+  display: inline;
+  float: left;
+  width: 25%;
+}
+
+.header-right {
+  display: flex;
+  float: right;
+  width: 75%;
+}
+
+.nav {
+  list-style-type: none;
+  display: flex;
+  align-items: flex-end;
+}
+
+.nav li {
+  display: inline;
+  padding: 0 10px;
+  margin-right: 5px;
+  vertical-align: baseline;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
 }

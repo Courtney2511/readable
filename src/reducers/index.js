@@ -1,14 +1,19 @@
-import * as actions from '../actions'
+import { GET_CATEGORIES } from '../actions'
 
 const initialState = {
-  posts: []
+  categories: ["this", "will", "be", "replaced"]
 }
 
-function posts (state = initialState, action) {
-  switch(action.type) {
+function categories(state=initialState, action) {
+  switch (action.type) {
+    case GET_CATEGORIES:
+    console.log(action)
+      return {
+        ...state, categories: action.data
+      }
     default:
       return state
   }
 }
 
-export default posts
+export default categories
