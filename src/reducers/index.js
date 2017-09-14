@@ -1,6 +1,8 @@
 import * as actions from '../actions'
 
-const initialState = {}
+const initialState = {
+  posts: []
+}
 
 function posts (state = initialState, action) {
   switch(action.type) {
