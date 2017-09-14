@@ -2,16 +2,19 @@ import axios from 'axios'
 
 export const GET_CATEGORIES = 'GET_CATEGORIES'
 
-export function getCategories(dispatch) {
+export function getCategories() {
+  console.log('get categories was called')
   const url = 'http://localhost:3001/categories'
-  const data = axios.get(url, {
-    headers: {
-      'Authorization': '12345'
-    }
-  })
-  return {
-    type: GET_CATEGORIES,
-    data: data
+  return dispatch => {
+      console.log('dispatch function was called')
+      return axios.get(url, {
+      headers: {
+        'Authorization': '12345'
+      }
+    }).then(result => dispatch({
+      type: GET_CATEGORIES,
+      data: result
+    }))
   }
 }
 

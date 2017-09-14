@@ -5,6 +5,7 @@
 }
 
 .header {
+  padding-top: 20px;
   display: flex;
   border-bottom: 1px solid black;
 }
@@ -29,7 +30,7 @@
 
 .nav li {
   display: inline;
-  padding: 0 10px;
+  padding: 2px 10px;
   margin-right: 5px;
   vertical-align: baseline;
   border-top: 1px solid black;

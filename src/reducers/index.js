@@ -1,15 +1,15 @@
 import { GET_CATEGORIES } from '../actions'
 
 const initialState = {
-  categories: ["this", "will", "be", "replaced"]
+  categories: []
 }
 
 function categories(state=initialState, action) {
   switch (action.type) {
     case GET_CATEGORIES:
-    console.log(action)
+    const categories = action.data.data.categories.map(category => category.name)
       return {
-        ...state, categories: action.data
+        ...state, categories: categories
       }
     default:
       return state

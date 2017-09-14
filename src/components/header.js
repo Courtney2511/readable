@@ -5,7 +5,7 @@ import { getCategories } from '../actions'
 class Header extends Component {
 
   componentDidMount() {
-    console.log(this.props.getCategories())
+    this.props.getCategories()
     // const url = 'http://localhost:3001/categories'
     // fetch(url, { headers: { 'Authorization': '12345' }})
     //   .then(res => res.json())
@@ -40,7 +40,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    getCategories: () => getCategories()
+    getCategories: () => dispatch(getCategories())
   }
 }
 
