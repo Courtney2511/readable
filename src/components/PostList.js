@@ -13,34 +13,41 @@ class PostList extends Component {
     const url = 'http://localhost:3001/posts'
     const headers = {headers: { 'Authorization': '12345'}}
 
-    axios.get(url, headers).then(result => console.log(result.data))
+    axios.get(url, headers).then(result => this.setState({
+      posts: result.data
+    }))
   }
   render() {
+    console.log(this.state)
     return (
       <div className='posts-container'>
-        <div className='post-container'>
-          <div className='post-left'>
-            <div className='rank'>
-              <span>1</span>
+        {this.state.posts.map(post =>
+          <div key = { post.id }className='post-container'>
+            <div className='post-left'>
+              <div className='rank'>
+                <span>1</span>
+              </div>
+              <div>
+                <ArrowUp size={30} />
+                <p>{post.voteScore}</p>
+                <ArrowDown size={30}/>
+              </div>
             </div>
-            <div>
-              <ArrowUp size={30} />
-              <p>234</p>
-              <ArrowDown size={30}/>
+            <div className='post-middle'>
+              <p>{post.title}</p>
+              <p>{post.body}</p>
+              <span className='subscript'>
+                <p>submitted @ { post.timestamp } by {post.author}</p>
+                <p># comments</p>
+              </span>
+            </div>
+            <div className='post-right'>
+              <p>edit</p>
+              <p>delete</p>
             </div>
           </div>
-          <div className='post-middle'>
-            <p>post text</p>
-            <span className='subscript'>
-              <p>submitted @ time by authour</p>
-              <p># comments</p>
-            </span>
-          </div>
-          <div className='post-right'>
-            <p>edit</p>
-            <p>delete</p>
-          </div>
-        </div>
+        )}
+
 
       </div>
     )
