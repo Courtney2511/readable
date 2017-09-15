@@ -6,13 +6,6 @@ class Header extends Component {
 
   componentDidMount() {
     this.props.getCategories()
-    // const url = 'http://localhost:3001/categories'
-    // fetch(url, { headers: { 'Authorization': '12345' }})
-    //   .then(res => res.json())
-    //   .then(({ categories }) => categories.map(({ name }) => name ))
-    //   .then((category) => this.setState({
-    //     categories: category
-    //   }))
   }
 
   render() {

@@ -1,23 +1,26 @@
 import axios from 'axios'
 
 export const GET_CATEGORIES = 'GET_CATEGORIES'
+export const GET_POSTS = 'GET_POSTS'
+
+const headers = {headers: { 'Authorization': '12345'}}
 
 export function getCategories() {
-  console.log('get categories was called')
   const url = 'http://localhost:3001/categories'
   return dispatch => {
-      console.log('dispatch function was called')
-      return axios.get(url, {
-      headers: {
-        'Authorization': '12345'
-      }
-    }).then(result => dispatch({
+    return axios.get(url, headers).then(result => dispatch({
       type: GET_CATEGORIES,
       data: result
     }))
   }
 }
 
-// const data = fetch(url, { headers: { 'Authorization': '12345' }})
-//   .then(res => res.json())
-//   .then(({ categories }) => categories.map(({ name }) => name ))
+export function getPosts() {
+  const url = 'http://localhost:301/posts'
+  return dispatch => {
+    return axios.get(url, headers).then(result => dispatch({
+      type: GET_POSTS,
+      data: result
+    }))
+  }
+}

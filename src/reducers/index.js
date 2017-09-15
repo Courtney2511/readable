@@ -1,7 +1,8 @@
 import { GET_CATEGORIES } from '../actions'
 
 const initialState = {
-  categories: []
+  categories: [],
+  posts: []
 }
 
 function categories(state=initialState, action) {
