@@ -7,10 +7,13 @@ import { Route } from 'react-router-dom'
 class App extends Component {
 
   render() {
+    console.log(this.state)
     return (
       <div className="App">
         <Header />
-        <Route path='/' component={ PostList } />
+        <Route exact path='/' render={() => (
+          <PostList />
+        )}/>
         <Route path='/:category' component={ PostList } />
       </div>
     )

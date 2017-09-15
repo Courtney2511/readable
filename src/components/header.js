@@ -13,7 +13,7 @@ class Header extends Component {
     return (
       <div className='header'>
         <div className='header-left'>
-          <h1>readable</h1>
+          <h1><Link to="/">readable</Link></h1>
         </div>
         <div className='header-right'>
           <ul className='nav'>
