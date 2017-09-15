@@ -13,6 +13,15 @@ a:visited {
   color: inherit;
 }
 
+button {
+  border: none;
+  background-image: none;
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
 .header {
   padding-top: 20px;
   display: flex;

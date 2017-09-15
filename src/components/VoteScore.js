@@ -6,9 +6,9 @@ class VoteScore extends Component {
   render() {
     return (
       <div>
-        <ArrowUp size={30} />
+        <button><ArrowUp size={30} /></button>
         <p>{this.props.score}</p>
-        <ArrowDown size={30}/>
+        <button><ArrowDown size={30}/></button>
       </div>
     )
   }
