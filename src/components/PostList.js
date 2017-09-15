@@ -1,26 +1,19 @@
 import React, { Component } from 'react'
-import axios from 'axios'
+import { connect } from 'react-redux'
+import { getPosts } from '../actions'
 import FormattedDate from '../helpers/FormattedDate'
 import ArrowUp from 'react-icons/lib/ti/arrow-sorted-up'
 import ArrowDown from 'react-icons/lib/ti/arrow-sorted-down'
 
 class PostList extends Component {
-  state = {
-    posts: []
-  }
 
   componentDidMount() {
-    const url = 'http://localhost:3001/posts'
-    const headers = {headers: { 'Authorization': '12345'}}
-
-    axios.get(url, headers).then(result => this.setState({
-      posts: result.data
-    }))
+    this.props.getPosts()
   }
   render() {
     return (
       <div className='posts-container'>
-        {this.state.posts.map(post =>
+        {this.props.posts.map(post =>
           <div key = { post.id }className='post-container'>
             <div className='post-left'>
               <div className='rank'>
@@ -46,15 +39,21 @@ class PostList extends Component {
             </div>
           </div>
         )}
-
-
       </div>
     )
   }
 }
 
-// function formatDate(timestamp) {
-//   return moment(timestamp).format('MMMM Do YYYY, h:mm:ss a')
-// }
+function mapStateToProps(state) {
+  return {
+    posts: state.posts.posts
+  }
+}
 
-export default PostList
+function mapDispatchToProps(dispatch) {
+  return {
+    getPosts: () => dispatch(getPosts())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PostList)

@@ -16,7 +16,7 @@ export function getCategories() {
 }
 
 export function getPosts() {
-  const url = 'http://localhost:301/posts'
+  const url = 'http://localhost:3001/posts'
   return dispatch => {
     return axios.get(url, headers).then(result => dispatch({
       type: GET_POSTS,
