@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import FormattedDate from '../helpers/FormattedDate'
 import ArrowUp from 'react-icons/lib/ti/arrow-sorted-up'
 import ArrowDown from 'react-icons/lib/ti/arrow-sorted-down'
-
 
 class PostList extends Component {
   state = {
@@ -37,7 +37,7 @@ class PostList extends Component {
               <p>{post.title}</p>
               <p>{post.body}</p>
               <span className='subscript'>
-                <p>submitted @ { post.timestamp } by {post.author}</p>
+                <p>submitted @ <FormattedDate date={post.timestamp} /> by {post.author}</p>
                 <p># comments</p>
               </span>
             </div>
@@ -53,5 +53,9 @@ class PostList extends Component {
     )
   }
 }
+
+// function formatDate(timestamp) {
+//   return moment(timestamp).format('MMMM Do YYYY, h:mm:ss a')
+// }
 
 export default PostList
