@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getPosts } from '../actions'
 import FormattedDate from '../helpers/FormattedDate'
-import ArrowUp from 'react-icons/lib/ti/arrow-sorted-up'
-import ArrowDown from 'react-icons/lib/ti/arrow-sorted-down'
+import VoteScore from './VoteScore'
 
 class PostList extends Component {
 
@@ -19,11 +18,7 @@ class PostList extends Component {
               <div className='rank'>
                 <span>1</span>
               </div>
-              <div>
-                <ArrowUp size={30} />
-                <p>{post.voteScore}</p>
-                <ArrowDown size={30}/>
-              </div>
+              <VoteScore score={ post.voteScore }/>
             </div>
             <div className='post-middle'>
               <p>{post.title}</p>
