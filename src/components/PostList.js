@@ -18,7 +18,6 @@ class PostList extends Component {
     }))
   }
   render() {
-    console.log(this.state)
     return (
       <div className='posts-container'>
         {this.state.posts.map(post =>

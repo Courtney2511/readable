@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { getCategories } from '../actions'
 
@@ -17,7 +18,8 @@ class Header extends Component {
         <div className='header-right'>
           <ul className='nav'>
             {this.props.categories.map(category =>
-            <li className='nav-li' key={category}>{category}</li>)}
+            <li className='nav-li' key={category}>
+              <Link to={`/${category}`}>{category}</Link></li>)}
           </ul>
         </div>
       </div>
