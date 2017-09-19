@@ -1,7 +1,7 @@
-import { GET_POSTS } from '../actions'
+import { GET_POSTS, LOAD_POST_COMMENTS, FILTER_POSTS } from '../actions'
 
 const initialState = {
-  posts: []
+  posts: [],
 }
 
 function posts(state=initialState, action) {
@@ -10,6 +10,15 @@ function posts(state=initialState, action) {
       const posts = action.data.data
       return {
         ...state, posts
+      }
+    case LOAD_POST_COMMENTS:
+      const comments = action.data.data
+      return {
+        ...state, comments
+      }
+    case FILTER_POSTS:
+      return {
+        ...state, filteredPosts: state.posts.filter(post => post.category === action.data)
       }
     default:
       return state

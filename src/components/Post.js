@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import FormattedDate from '../helpers/FormattedDate'
 import VoteScore from './VoteScore'
+import Link from 'react-router'
 
 
 class Post extends Component {
@@ -8,7 +9,7 @@ class Post extends Component {
 
   render() {
     return (
-      <div key = { this.props.post.id }className='post-container'>
+      <div className='post-container'>
         <div className='post-left'>
           <div className='rank'>
             <span>1</span>
