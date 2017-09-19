@@ -5,6 +5,7 @@ import VoteScore from './VoteScore'
 import { Link } from 'react-router-dom'
 
 class Post extends Component {
+
   render() {
     const { voteScore, category, id, title, body, timestamp, author } = this.props.post
     return (
@@ -34,7 +35,6 @@ class Post extends Component {
 
 Post.PropTypes = {
   post: PropTypes.object.isRequired,
-  getPost: PropTypes.func.isRequired
 }
 
 export default Post

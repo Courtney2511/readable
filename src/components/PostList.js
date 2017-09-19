@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getPosts, getPost } from '../actions'
+import { getPosts } from '../actions'
 import Post from './Post'
 
 class PostList extends Component {
@@ -13,7 +13,7 @@ class PostList extends Component {
     return (
       <div className='posts-container'>
         {this.props.posts.map(post =>
-          <Post key={post.id} post={post} getPost={this.props.getPost} />
+          <Post key={post.id} post={post} />
         )}
       </div>
     )
@@ -29,7 +29,6 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     getPosts: () => dispatch(getPosts()),
-    getPost: () => dispatch(getPost())
   }
 }
 

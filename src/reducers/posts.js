@@ -8,9 +8,9 @@ function posts(state=initialState, action) {
   switch(action.type) {
     case GET_POST:
       const post = action.data.data
-      console.log(action.data)
+      console.log(action.data.data)
       return {
-        ...state, post
+        ...state, post: post
       }
     case GET_POSTS:
       const posts = action.data.data

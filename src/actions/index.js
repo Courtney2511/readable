@@ -9,12 +9,11 @@ export const GET_POST = 'GET_POST'
 const headers = { headers: { 'Authorization': 'stuff'} }
 
 export function getPost(postId) {
-  const url = `http://localhost:3001/${postId}`
+  const url = `http://localhost:3001/posts/${postId}`
   return dispatch => {
-    console.log(url)
     return axios.get(url, headers).then(result => dispatch({
       type: 'GET_POST',
-      data: postId
+      data: result
     }))
   }
 }
