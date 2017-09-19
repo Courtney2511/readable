@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import FormattedDate from '../helpers/FormattedDate'
 import VoteScore from './VoteScore'
 import { Link } from 'react-router-dom'
-import { connect } from 'redux'
 
 class Post extends Component {
   render() {
@@ -16,7 +16,7 @@ class Post extends Component {
           <VoteScore score={ voteScore }/>
         </div>
         <div className='post-middle'>
-          <Link to={`/${category}/${id}`}><h3>{title}</h3></Link>
+          <Link to={`/${category}/${id}`} onClick={() => this.props.getPost(category, id)}><h3>{title}</h3></Link>
           <p>{body}</p>
           <span className='subscript'>
             <p>submitted @ <FormattedDate date={timestamp} /> by {author}</p>
@@ -30,6 +30,11 @@ class Post extends Component {
       </div>
     )
   }
+}
+
+Post.PropTypes = {
+  post: PropTypes.object.isRequired,
+  getPost: PropTypes.func.isRequired
 }
 
 export default Post

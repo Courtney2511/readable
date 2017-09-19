@@ -8,6 +8,7 @@ function posts(state=initialState, action) {
   switch(action.type) {
     case GET_POST:
       const post = action.data.data
+      console.log(action.data)
       return {
         ...state, post
       }
