@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 
-
 class PostDetail extends Component {
 
   render() {
@@ -11,6 +10,7 @@ class PostDetail extends Component {
     )
   }
 }
+
 
 
 export default PostDetail

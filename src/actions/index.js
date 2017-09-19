@@ -11,6 +11,7 @@ const headers = { headers: { 'Authorization': 'stuff'} }
 export function getPost(postId) {
   const url = `http://localhost:3001/${postId}`
   return dispatch => {
+    console.log(url)
     return axios.get(url, headers).then(result => dispatch({
       type: 'GET_POST',
       data: postId
