@@ -6,20 +6,20 @@ import { connect } from 'redux'
 
 class Post extends Component {
   render() {
-    console.log(this.props)
+    const { voteScore, category, id, title, body, timestamp, author } = this.props.post
     return (
       <div className='post-container'>
         <div className='post-left'>
           <div className='rank'>
             <span>1</span>
           </div>
-          <VoteScore score={ this.props.post.voteScore }/>
+          <VoteScore score={ voteScore }/>
         </div>
         <div className='post-middle'>
-          <Link to={`/${this.props.post.category}/${this.props.post.id}`}><h3>{this.props.post.title}</h3></Link>
-          <p>{this.props.post.body}</p>
+          <Link to={`/${category}/${id}`}><h3>{title}</h3></Link>
+          <p>{body}</p>
           <span className='subscript'>
-            <p>submitted @ <FormattedDate date={this.props.post.timestamp} /> by {this.props.post.author}</p>
+            <p>submitted @ <FormattedDate date={timestamp} /> by {author}</p>
             <p># comments</p>
           </span>
         </div>
