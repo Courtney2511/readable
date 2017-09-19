@@ -16,7 +16,7 @@ class Post extends Component {
           <VoteScore score={ voteScore }/>
         </div>
         <div className='post-middle'>
-          <Link to={`/${category}/${id}`} onClick={() => this.props.getPost(category, id)}><h3>{title}</h3></Link>
+          <Link to={`/${category}/${id}`} onClick={() => this.props.getPost(id)}><h3>{title}</h3></Link>
           <p>{body}</p>
           <span className='subscript'>
             <p>submitted @ <FormattedDate date={timestamp} /> by {author}</p>
