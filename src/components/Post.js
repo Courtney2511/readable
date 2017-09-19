@@ -5,8 +5,6 @@ import Link from 'react-router'
 
 
 class Post extends Component {
-
-
   render() {
     return (
       <div className='post-container'>

@@ -5,7 +5,7 @@ export const GET_POSTS = 'GET_POSTS'
 export const LOAD_POST_COMMENTS = 'LOAD_POST_COMMENTS'
 export const FILTER_POSTS = 'FILTER_POSTS'
 
-const headers = {headers: { 'Authorization': '12345'}}
+const headers = {headers: { 'Authorization': 'stuff'}}
 
 export function filterPosts(category) {
   return {
