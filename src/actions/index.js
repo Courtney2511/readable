@@ -4,8 +4,19 @@ export const GET_CATEGORIES = 'GET_CATEGORIES'
 export const GET_POSTS = 'GET_POSTS'
 export const LOAD_POST_COMMENTS = 'LOAD_POST_COMMENTS'
 export const FILTER_POSTS = 'FILTER_POSTS'
+export const GET_POST = 'GET_POST'
 
-const headers = {headers: { 'Authorization': 'stuff'}}
+const headers = { headers: { 'Authorization': 'stuff'} }
+
+export function getPost(postId) {
+  const url = `http://localhost:3001/${postId}`
+  return dispatch => {
+    return axios.get(url, headers).then(result => dispatch({
+      type: 'GET_POST',
+      data: postId
+    }))
+  }
+}
 
 export function filterPosts(category) {
   return {

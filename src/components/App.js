@@ -3,6 +3,7 @@ import '../App.css'
 import Header from './Header'
 import PostList from './PostList'
 import NewPostForm from './NewPostForm'
+import PostDetail from './PostDetail'
 import { Route } from 'react-router-dom'
 
 class App extends Component {
@@ -14,6 +15,7 @@ class App extends Component {
           <Route exact path='/' component={ PostList }/>
           <Route exact path='/posts/new' component= { NewPostForm } />
           <Route exact path='/:category' component={ PostList } />
+          <Route exact path='/:category/:postId' component={ PostDetail }></Route>
       </div>
     )
   }

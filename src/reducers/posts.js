@@ -1,4 +1,4 @@
-import { GET_POSTS, LOAD_POST_COMMENTS, FILTER_POSTS } from '../actions'
+import { GET_POSTS, LOAD_POST_COMMENTS, FILTER_POSTS, GET_POST } from '../actions'
 
 const initialState = {
   posts: [],
@@ -6,6 +6,11 @@ const initialState = {
 
 function posts(state=initialState, action) {
   switch(action.type) {
+    case GET_POST:
+      const post = action.data.data
+      return {
+        ...state, post
+      }
     case GET_POSTS:
       const posts = action.data.data
       return {

@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import FormattedDate from '../helpers/FormattedDate'
 import VoteScore from './VoteScore'
-import Link from 'react-router'
-
+import { Link } from 'react-router-dom'
+import { connect } from 'redux'
 
 class Post extends Component {
   render() {
+    console.log(this.props)
     return (
       <div className='post-container'>
         <div className='post-left'>
@@ -15,7 +16,7 @@ class Post extends Component {
           <VoteScore score={ this.props.post.voteScore }/>
         </div>
         <div className='post-middle'>
-          <p>{this.props.post.title}</p>
+          <Link to={`/${this.props.post.category}/${this.props.post.id}`}><h3>{this.props.post.title}</h3></Link>
           <p>{this.props.post.body}</p>
           <span className='subscript'>
             <p>submitted @ <FormattedDate date={this.props.post.timestamp} /> by {this.props.post.author}</p>
