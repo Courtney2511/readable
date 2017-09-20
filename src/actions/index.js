@@ -3,7 +3,7 @@ import axios from 'axios'
 export const GET_CATEGORIES = 'GET_CATEGORIES'
 export const GET_POSTS = 'GET_POSTS'
 export const LOAD_POST_COMMENTS = 'LOAD_POST_COMMENTS'
-export const FILTER_POSTS = 'FILTER_POSTS'
+export const GET_POSTS_BY_CATEGORY = 'GET_POSTS_BY_CATEGORY'
 export const GET_POST = 'GET_POST'
 
 const headers = { headers: { 'Authorization': 'stuff'} }
@@ -15,13 +15,6 @@ export function getPost(postId) {
       type: 'GET_POST',
       payload: result
     }))
-  }
-}
-
-export function filterPosts(category) {
-  return {
-    type: 'FILTER_POSTS',
-    payload: category
   }
 }
 
@@ -51,6 +44,16 @@ export function getPosts() {
   return dispatch => {
     return axios.get(url, headers).then(result => dispatch({
       type: GET_POSTS,
+      payload: result
+    }))
+  }
+}
+
+export function getPostsByCategory(category) {
+  const url = `http://localhost:3001/${category}/posts`
+  return dispatch => {
+    return axios.get(url, headers).then(result => dispatch({
+      type: GET_POSTS_BY_CATEGORY,
       payload: result
     }))
   }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { getCategories, filterPosts } from '../actions'
+import { getCategories, getPostsByCategory } from '../actions'
 
 class Header extends Component {
 
@@ -19,7 +19,7 @@ class Header extends Component {
           <ul className='nav'>
             {this.props.categories.map(category =>
             <li className='nav-li' key={category}>
-              <Link to={`/${category}`} onClick={() => this.props.filterPosts(category)}>{category}</Link>
+              <Link to={`/${category}`} onClick={() => this.props.getPostsByCategory(category)}>{category}</Link>
             </li>)}
           </ul>
         </div>
@@ -37,7 +37,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     getCategories: () => dispatch(getCategories()),
-    filterPosts: (category) => dispatch(filterPosts(category))
+    getPostsByCategory: (category) => dispatch(getPostsByCategory(category))
   }
 }
 

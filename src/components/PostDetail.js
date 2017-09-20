@@ -25,7 +25,7 @@ class PostDetail extends Component {
           ? <div className='comments-container'>
               <h3>Comments:</h3>
               {this.props.comments.map(comment =>
-                <Comment comment={comment} />
+                <Comment key={comment.id} comment={comment} />
                 )}
             </div>
           : null
