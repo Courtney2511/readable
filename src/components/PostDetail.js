@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getPost, loadPostComments } from '../actions'
 import Post from './Post'
-import VoteScore from './VoteScore'
+import Comment from './Comment'
 
 class PostDetail extends Component {
 
@@ -25,19 +25,8 @@ class PostDetail extends Component {
           ? <div className='comments-container'>
               <h3>Comments:</h3>
               {this.props.comments.map(comment =>
-                <div className='comment-container'>
-                  <div>
-                    <VoteScore score={ comment.voteScore }/>
-                  </div>
-                  <div>
-                    <p className='subscript'>{comment.author} wrote:</p>
-                    <p>{comment.body}</p>
-                  </div>
-                  <div>
-                    <p>Edit</p>
-                    <p>Delete</p>
-                  </div>
-                </div>)}
+                <Comment comment={comment} />
+                )}
             </div>
           : null
         }

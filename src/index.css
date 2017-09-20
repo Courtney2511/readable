@@ -56,6 +56,12 @@ button {
   border-right: 1px solid black;
 }
 
+/* VoteScore Component */
+
+.vote-container {
+  color: grey;
+}
+
 /* Post list styles */
 
 .post-container {
@@ -69,6 +75,7 @@ button {
 .rank {
   padding: 10px;
   vertical-align: middle;
+  margin-top: 20px;
 }
 
 .rank span {
@@ -80,6 +87,10 @@ button {
   text-align: left;
   padding: 10px;
   border-bottom: 1px solid grey;
+}
+
+.post-body {
+  padding-top: 10px;
 }
 
 .subscript {
@@ -97,6 +108,27 @@ button {
   margin-left: 50px;
 }
 
+/* Comment Component Styles */
+
 .comment-container {
+  display: flex;
+}
+
+.comment-left {
+  color: grey;
+}
+
+.comment-middle {
+  width: 80%;
+  text-align: left;
+  padding: 10px;
+  border-bottom: 1px solid grey;
+}
+
+.comment-body {
+  padding-top: 10px;
+}
+
+.comment-right {
   display: flex;
 }

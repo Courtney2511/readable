@@ -5,10 +5,10 @@ import ArrowDown from 'react-icons/lib/ti/arrow-sorted-down'
 class VoteScore extends Component {
   render() {
     return (
-      <div>
-        <button><ArrowUp size={30} /></button>
+      <div className='vote-container'>
+        <button><ArrowUp size={30} color='grey'/></button>
         <p>{this.props.score}</p>
-        <button><ArrowDown size={30}/></button>
+        <button><ArrowDown size={30} color='grey'/></button>
       </div>
     )
   }
