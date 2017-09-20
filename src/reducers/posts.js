@@ -7,18 +7,17 @@ const initialState = {
 function posts(state=initialState, action) {
   switch(action.type) {
     case GET_POST:
-      const post = action.data.data
-      console.log(action.data.data)
+      const post = action.payload.data
       return {
         ...state, post: post
       }
     case GET_POSTS:
-      const posts = action.data.data
+      const posts = action.payload.data
       return {
         ...state, posts
       }
     case LOAD_POST_COMMENTS:
-      const comments = action.data.data
+      const comments = action.payload.data
       return {
         ...state, comments
       }

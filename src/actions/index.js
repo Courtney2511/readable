@@ -13,7 +13,7 @@ export function getPost(postId) {
   return dispatch => {
     return axios.get(url, headers).then(result => dispatch({
       type: 'GET_POST',
-      data: result
+      payload: result
     }))
   }
 }
@@ -21,7 +21,7 @@ export function getPost(postId) {
 export function filterPosts(category) {
   return {
     type: 'FILTER_POSTS',
-    data: category
+    payload: category
   }
 }
 
@@ -31,7 +31,7 @@ export function loadPostComments(postId) {
   return dispatch => {
     return axios.get(url, headers).then(result => dispatch({
       type: LOAD_POST_COMMENTS,
-      data: result
+      payload: result
     }))
   }
 }
@@ -41,7 +41,7 @@ export function getCategories() {
   return dispatch => {
     return axios.get(url, headers).then(result => dispatch({
       type: GET_CATEGORIES,
-      data: result
+      payload: result
     }))
   }
 }
@@ -51,7 +51,7 @@ export function getPosts() {
   return dispatch => {
     return axios.get(url, headers).then(result => dispatch({
       type: GET_POSTS,
-      data: result
+      payload: result
     }))
   }
 }

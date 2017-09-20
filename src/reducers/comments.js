@@ -7,7 +7,7 @@ const initialState = {
 function comments(state=initialState, action) {
   switch(action.type) {
     case LOAD_POST_COMMENTS:
-      const comments = action.data.data
+      const comments = action.payload.data
       return {
         ...state, comments
       }
