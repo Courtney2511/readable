@@ -16,7 +16,7 @@ class Post extends Component {
           <div className='rank'>
             <span>1</span>
           </div>
-          <VoteScore score={ voteScore }/>
+          <VoteScore id={ id } score={ voteScore }/>
         </div>
         <div className='post-middle'>
           <Link to={`/${category}/${id}`}><h3>{ title }</h3></Link>
