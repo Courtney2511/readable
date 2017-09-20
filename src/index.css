@@ -90,3 +90,13 @@ button {
 .post-right {
   display: flex;
 }
+
+/* Post Detail Styles*/
+
+.comments-container {
+  margin-left: 50px;
+}
+
+.comment-container {
+  display: flex;
+}

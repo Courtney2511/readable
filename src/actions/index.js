@@ -25,8 +25,9 @@ export function filterPosts(category) {
   }
 }
 
-export function loadPostComments(category, postId) {
-  const url = `http://localhost:3001/${category}/${postId}`
+export function loadPostComments(postId) {
+  const url = `http://localhost:3001/posts/${postId}/comments`
+  console.log(url)
   return dispatch => {
     return axios.get(url, headers).then(result => dispatch({
       type: LOAD_POST_COMMENTS,
