@@ -3,7 +3,7 @@ import { GET_POSTS,
          GET_POSTS_BY_CATEGORY,
          GET_POST,
          UPVOTE_POST,
-         UPDATE_POST_VOTE } from '../actions'
+         DOWNVOTE_POST } from '../actions'
 
 const initialState = {
   posts: [],
@@ -37,16 +37,27 @@ function posts(state=initialState, action) {
         ...state, comments: comments
       }
     case UPVOTE_POST:
-      const updatedPost = action.payload.data
+      const upVotedPost = action.payload.data
       return {
         ...state, posts: state.posts.map(post => {
-          if (post.id === updatedPost.id) {
-            return updatedPost
+          if (post.id === upVotedPost.id) {
+            return upVotedPost
           } else {
             return post
           }
         })
       }
+    case DOWNVOTE_POST:
+    const downVotedPost = action.payload.data
+    return {
+      ...state, posts: state.posts.map(post => {
+        if (post.id === downVotedPost.id) {
+          return downVotedPost
+        } else {
+          return post
+        }
+      })
+    }
     default:
       return state
   }
