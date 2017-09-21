@@ -1,4 +1,9 @@
-import { GET_POSTS, LOAD_POST_COMMENTS, GET_POSTS_BY_CATEGORY, GET_POST, UPVOTE_POST } from '../actions'
+import { GET_POSTS,
+         LOAD_POST_COMMENTS,
+         GET_POSTS_BY_CATEGORY,
+         GET_POST,
+         UPVOTE_POST,
+         UPDATE_POST_VOTE } from '../actions'
 
 const initialState = {
   posts: [],
@@ -6,6 +11,8 @@ const initialState = {
   comments: [],
   updatedPost: null
 }
+
+
 
 function posts(state=initialState, action) {
   switch(action.type) {
@@ -15,14 +22,14 @@ function posts(state=initialState, action) {
         ...state, post: post
       }
     case GET_POSTS_BY_CATEGORY:
-      const posts = action.payload.data
-      return {
-        ...state, posts: posts
-      }
-    case GET_POSTS:
       const postsByCategory = action.payload.data
       return {
         ...state, posts: postsByCategory
+      }
+    case GET_POSTS:
+      const posts = action.payload.data
+      return {
+        ...state, posts: posts
       }
     case LOAD_POST_COMMENTS:
       const comments = action.payload.data
@@ -32,7 +39,13 @@ function posts(state=initialState, action) {
     case UPVOTE_POST:
       const updatedPost = action.payload.data
       return {
-        ...state, updatedPost: updatedPost
+        ...state, posts: state.posts.map(post => {
+          if (post.id === updatedPost.id) {
+            return updatedPost
+          } else {
+            return post
+          }
+        })
       }
     default:
       return state

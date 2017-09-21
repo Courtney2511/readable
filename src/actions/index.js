@@ -6,6 +6,7 @@ export const LOAD_POST_COMMENTS = 'LOAD_POST_COMMENTS'
 export const GET_POSTS_BY_CATEGORY = 'GET_POSTS_BY_CATEGORY'
 export const GET_POST = 'GET_POST'
 export const UPVOTE_POST = 'UPVOTE_POST'
+export const UPDATE_POST_VOTE = 'UPDATE_POST_VOTE'
 
 const headers = { headers: { 'Authorization': 'stuff'} }
 
@@ -62,12 +63,17 @@ export function getPostsByCategory(category) {
 
 export function upVotePost(postId) {
   const url = `http://localhost:3001/posts/${postId}`
-  console.log('action was called')
-  console.log(url)
   return dispatch => {
     return axios.post(url, {"option": "upVote"}, headers).then(result => dispatch({
       type: UPVOTE_POST,
       payload: result
     }))
+  }
+}
+
+export function updatePostVote(postId) {
+  return {
+    type: UPDATE_POST_VOTE,
+    payload: postId
   }
 }
