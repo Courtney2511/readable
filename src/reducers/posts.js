@@ -45,7 +45,8 @@ function posts(state=initialState, action) {
           } else {
             return post
           }
-        })
+        }),
+                  post: upVotedPost
       }
     case DOWNVOTE_POST:
     const downVotedPost = action.payload.data
