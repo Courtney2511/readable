@@ -12,7 +12,7 @@ class NewPostForm extends Component {
           <div className="category-select">
             <select name='category'>
               {this.props.categories.map(category => (
-                <option value={`${category}`}>{category}</option>
+                <option key={ category } value={`${category}`}>{category}</option>
               )
               )}
             </select>
