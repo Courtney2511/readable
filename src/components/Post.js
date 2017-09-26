@@ -5,6 +5,8 @@ import VoteScore from './VoteScore'
 import { Link } from 'react-router-dom'
 import TrashIcon from 'react-icons/lib/ti/trash'
 import WriteIcon from 'react-icons/lib/ti/pencil'
+import { connect } from 'react-redux'
+import { upVotePost, downVotePost } from '../actions'
 
 class Post extends Component {
 
@@ -16,7 +18,7 @@ class Post extends Component {
           <div className='rank'>
             <span>1</span>
           </div>
-          <VoteScore id={ id } score={ voteScore }/>
+          <VoteScore id={ id } score={ voteScore } upVote={this.props.upVote} downVote={this.props.downVote}/>
         </div>
         <div className='post-middle'>
           <Link to={`/${category}/${id}`}><h3>{ title }</h3></Link>
@@ -39,4 +41,17 @@ Post.PropTypes = {
   post: PropTypes.object.isRequired,
 }
 
-export default Post
+function mapStateToProps(state) {
+  return {
+    posts: state.posts.posts
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    upVote: (id) => dispatch(upVotePost(id)),
+    downVote: (id) => dispatch(downVotePost(id))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Post)

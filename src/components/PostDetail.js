@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getPost, loadPostComments } from '../actions'
+import { getPost, loadPostComments, upVotePost, downVotePost } from '../actions'
 import Post from './Post'
 import Comment from './Comment'
 
@@ -47,7 +47,9 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     getPost: (id) => dispatch(getPost(id)),
-    loadPostComments: (id) => dispatch(loadPostComments(id))
+    loadPostComments: (id) => dispatch(loadPostComments(id)),
+    upVotePost: (id) => dispatch(upVotePost(id)),
+    downVotePost: (id) => dispatch(downVotePost(id))
   }
 }
 

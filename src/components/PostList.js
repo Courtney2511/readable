@@ -10,7 +10,6 @@ class PostList extends Component {
   }
 
   render() {
-    console.log(this.props.posts)
     return (
       <div className='posts-container'>
         {this.props.posts.map(post =>
