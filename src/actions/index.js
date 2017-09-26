@@ -7,6 +7,8 @@ export const GET_POSTS_BY_CATEGORY = 'GET_POSTS_BY_CATEGORY'
 export const GET_POST = 'GET_POST'
 export const UPVOTE_POST = 'UPVOTE_POST'
 export const DOWNVOTE_POST = 'DOWNVOTE_POST'
+export const UPVOTE_COMMENT = 'UPVOTE_COMMENT'
+export const DOWNVOTE_COMMENT = 'DOWNVOTE_COMMENT'
 
 const headers = { headers: { 'Authorization': 'stuff'} }
 
@@ -22,7 +24,6 @@ export function getPost(postId) {
 
 export function loadPostComments(postId) {
   const url = `http://localhost:3001/posts/${postId}/comments`
-  console.log(url)
   return dispatch => {
     return axios.get(url, headers).then(result => dispatch({
       type: LOAD_POST_COMMENTS,
@@ -76,6 +77,26 @@ export function downVotePost(postId) {
   return dispatch => {
     return axios.post(url, {"option": "downVote"}, headers).then(result => dispatch({
       type: DOWNVOTE_POST,
+      payload: result
+    }))
+  }
+}
+
+export function upVoteComment(commentId) {
+  const url = `http://localhost:3001/comments/${commentId}`
+  return dispatch => {
+    return axios.post(url, {"option": "upVote"}, headers).then(result => dispatch({
+      type: UPVOTE_COMMENT,
+      payload: result
+    }))
+  }
+}
+
+export function downVoteComment(commentId) {
+  const url = `http://localhost:3001/comments/${commentId}`
+  return dispatch => {
+    return axios.post(url, {"option": "downVote"}, headers).then(result => dispatch({
+      type: DOWNVOTE_COMMENT,
       payload: result
     }))
   }
