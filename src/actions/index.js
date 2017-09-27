@@ -9,7 +9,7 @@ export const UPVOTE_POST = 'UPVOTE_POST'
 export const DOWNVOTE_POST = 'DOWNVOTE_POST'
 export const UPVOTE_COMMENT = 'UPVOTE_COMMENT'
 export const DOWNVOTE_COMMENT = 'DOWNVOTE_COMMENT'
-epxort const DELETE_COMMENT = 'DELETE_COMMENT'
+export const DELETE_COMMENT = 'DELETE_COMMENT'
 
 const headers = { headers: { 'Authorization': 'stuff'} }
 
@@ -104,7 +104,7 @@ export function downVoteComment(commentId) {
 }
 
 export function deleteComment(commentId) {
-  const url = `http://localhost:3001/comment/${commentId}`
+  const url = `http://localhost:3001/comments/${commentId}`
   return dispatch => {
     return axios.delete(url, headers).then(result => dispatch({
       type: DELETE_COMMENT,

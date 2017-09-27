@@ -1,4 +1,7 @@
-import { LOAD_POST_COMMENTS, UPVOTE_COMMENT, DOWNVOTE_COMMENT } from '../actions'
+import { LOAD_POST_COMMENTS,
+         UPVOTE_COMMENT,
+         DOWNVOTE_COMMENT,
+         DELETE_COMMENT } from '../actions'
 
 const initialState = {
   comments: []
@@ -33,6 +36,17 @@ function comments(state=initialState, action) {
           }
         })
       }
+    case DELETE_COMMENT:
+    const deletedComment = action.payload.data
+    return {
+      ...state, comments: state.comments.map(comment => {
+        if (comment.id === deletedComment.id) {
+          return deletedComment
+        } else {
+          return comment
+        }
+      })
+    }
     default:
       return state
   }

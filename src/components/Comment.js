@@ -3,7 +3,7 @@ import VoteScore from './VoteScore'
 import TrashIcon from 'react-icons/lib/ti/trash'
 import WriteIcon from 'react-icons/lib/ti/pencil'
 import { connect } from 'react-redux'
-import { upVoteComment, downVoteComment } from '../actions'
+import { upVoteComment, downVoteComment, deleteComment } from '../actions'
 
 
 class Comment extends Component {
@@ -20,7 +20,7 @@ class Comment extends Component {
         </div>
         <div className='comment-right'>
           <button><WriteIcon size={20} /></button>
-          <button><TrashIcon size={20}/></button>
+          <button onClick={() => this.props.deleteComment(id)}><TrashIcon size={20}/></button>
         </div>
       </div>
     )
@@ -36,7 +36,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
       upVote: (id) => dispatch(upVoteComment(id)),
-      downVote: (id) => dispatch(downVoteComment(id))
+      downVote: (id) => dispatch(downVoteComment(id)),
+      deleteComment: (id) => dispatch(deleteComment(id))
   }
 }
 
