@@ -10,6 +10,7 @@ export const DOWNVOTE_POST = 'DOWNVOTE_POST'
 export const UPVOTE_COMMENT = 'UPVOTE_COMMENT'
 export const DOWNVOTE_COMMENT = 'DOWNVOTE_COMMENT'
 export const DELETE_COMMENT = 'DELETE_COMMENT'
+export const DELETE_POST = 'DELETE_POST'
 
 const headers = { headers: { 'Authorization': 'stuff'} }
 
@@ -108,6 +109,16 @@ export function deleteComment(commentId) {
   return dispatch => {
     return axios.delete(url, headers).then(result => dispatch({
       type: DELETE_COMMENT,
+      payload: result
+    }))
+  }
+}
+
+export function deletePost(postId) {
+  const url = `http://localhost:3001/posts/${postId}`
+  return dispatch => {
+    return axios.delete(url, header).then(resut => dispatch({
+      type: DELETE_POST,
       payload: result
     }))
   }

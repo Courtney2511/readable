@@ -3,7 +3,8 @@ import { GET_POSTS,
          GET_POSTS_BY_CATEGORY,
          GET_POST,
          UPVOTE_POST,
-         DOWNVOTE_POST } from '../actions'
+         DOWNVOTE_POST,
+         DELETE_POST } from '../actions'
 
 const initialState = {
   posts: [],
@@ -49,16 +50,27 @@ function posts(state=initialState, action) {
                   post: upVotedPost
       }
     case DOWNVOTE_POST:
-    const downVotedPost = action.payload.data
-    return {
-      ...state, posts: state.posts.map(post => {
-        if (post.id === downVotedPost.id) {
-          return downVotedPost
-        } else {
-          return post
+      const downVotedPost = action.payload.data
+      return {
+          ...state, posts: state.posts.map(post => {
+            if (post.id === downVotedPost.id) {
+              return downVotedPost
+            } else {
+              return post
+            }
+          })
         }
-      })
-    }
+    case DELETE_POST:
+      const deletedPost = action.payload.data
+      return {
+        ...state, posts: state.posts.map(post => {
+          if (post.id === deletedPost.id) {
+            return deletedPost
+          } else {
+            return post
+          }
+        })
+      }
     default:
       return state
   }
