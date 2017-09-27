@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getPosts } from '../actions'
+import { getPosts } from '../actions/posts'
 import Post from './Post'
 
 class PostList extends Component {

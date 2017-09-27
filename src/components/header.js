@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { getCategories, getPostsByCategory } from '../actions'
+import { getCategories } from '../actions/categories'
+import { getPostsByCategory } from '../actions/posts'
 
 class Header extends Component {
 

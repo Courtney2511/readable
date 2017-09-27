@@ -1,10 +1,9 @@
 import { GET_POSTS,
-         LOAD_POST_COMMENTS,
          GET_POSTS_BY_CATEGORY,
          GET_POST,
          UPVOTE_POST,
          DOWNVOTE_POST,
-         DELETE_POST } from '../actions'
+         DELETE_POST } from '../actions/posts'
 
 const initialState = {
   posts: [],
@@ -31,11 +30,6 @@ function posts(state=initialState, action) {
       const posts = action.payload.data
       return {
         ...state, posts: posts
-      }
-    case LOAD_POST_COMMENTS:
-      const comments = action.payload.data
-      return {
-        ...state, comments: comments
       }
     case UPVOTE_POST:
       const upVotedPost = action.payload.data

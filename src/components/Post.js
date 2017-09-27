@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import TrashIcon from 'react-icons/lib/ti/trash'
 import WriteIcon from 'react-icons/lib/ti/pencil'
 import { connect } from 'react-redux'
-import { upVotePost, downVotePost } from '../actions'
+import { upVotePost, downVotePost } from '../actions/posts'
 
 class Post extends Component {
 

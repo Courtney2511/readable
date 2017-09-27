@@ -3,7 +3,7 @@ import VoteScore from './VoteScore'
 import TrashIcon from 'react-icons/lib/ti/trash'
 import WriteIcon from 'react-icons/lib/ti/pencil'
 import { connect } from 'react-redux'
-import { upVoteComment, downVoteComment, deleteComment } from '../actions'
+import { upVoteComment, downVoteComment, deleteComment } from '../actions/comments'
 
 
 class Comment extends Component {

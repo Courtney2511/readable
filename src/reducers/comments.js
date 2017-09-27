@@ -1,7 +1,7 @@
 import { LOAD_POST_COMMENTS,
          UPVOTE_COMMENT,
          DOWNVOTE_COMMENT,
-         DELETE_COMMENT } from '../actions'
+         DELETE_COMMENT } from '../actions/comments'
 
 const initialState = {
   comments: []

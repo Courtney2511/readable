@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getPost, loadPostComments, upVotePost, downVotePost, deleteComment } from '../actions'
+import { getPost, upVotePost, downVotePost } from '../actions/posts'
+import { loadPostComments, deleteComment } from '../actions/comments'
 import Post from './Post'
 import Comment from './Comment'
 
