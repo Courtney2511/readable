@@ -25,11 +25,10 @@ class PostDetail extends Component {
           (this.props.comments)
           ? <div className='comments-container'>
               <h3>Comments:</h3>
-              {this.props.comments.map(comment => {
-                if (comment.deleted === false) {
-                  return <Comment key={comment.id} comment={comment} />
-                 }
-                }
+              {this.props.comments.filter(
+                comment => comment.deleted === false
+              ).map(
+                comment => <Comment key={comment.id} comment={comment} />
               )}
             </div>
           : null
