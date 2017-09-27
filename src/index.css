@@ -34,10 +34,20 @@ button {
   width: 25%;
 }
 
-.header-right {
+.header-middle {
   display: flex;
   float: right;
   width: 75%;
+}
+
+.header-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.header-right > a {
+  color: red;
+  float: right;
 }
 
 .nav {

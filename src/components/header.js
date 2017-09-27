@@ -15,13 +15,16 @@ class Header extends Component {
         <div className='header-left'>
           <h1><Link to="/">readable</Link></h1>
         </div>
-        <div className='header-right'>
+        <div className='header-middle'>
           <ul className='nav'>
             {this.props.categories.map(category =>
             <li className='nav-li' key={category}>
               <Link to={`/${category}`} onClick={() => this.props.getPostsByCategory(category)}>{category}</Link>
             </li>)}
           </ul>
+        </div>
+        <div className="header-right">
+          <Link to="/posts/new">New Post</Link>
         </div>
       </div>
     )
