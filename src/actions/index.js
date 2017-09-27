@@ -117,7 +117,7 @@ export function deleteComment(commentId) {
 export function deletePost(postId) {
   const url = `http://localhost:3001/posts/${postId}`
   return dispatch => {
-    return axios.delete(url, header).then(resut => dispatch({
+    return axios.delete(url, headers).then(result => dispatch({
       type: DELETE_POST,
       payload: result
     }))
