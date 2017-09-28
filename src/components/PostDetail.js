@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getPost, upVotePost, downVotePost } from '../actions/posts'
-import { loadPostComments, deleteComment } from '../actions/comments'
+import { getPost } from '../actions/posts'
+import { loadPostComments } from '../actions/comments'
 import Post from './Post'
 import Comment from './Comment'
 
@@ -13,22 +13,23 @@ class PostDetail extends Component {
   }
 
   render() {
+    const { post, comments } = this.props
     return (
       <div>
         <h3>Post Detail Page</h3>
         {
-          (this.props.posts.post)
-          ? <Post post={this.props.posts.post}/>
+          (post)
+          ? <Post post={ post }/>
           : <div>loading...</div>
         }
         { // display comments if they exist and have not been flaged deleted
-          (this.props.comments)
+          (comments)
           ? <div className='comments-container'>
               <h3>Comments:</h3>
-              {this.props.comments.filter(
+              { comments.filter(
                 comment => comment.deleted === false
               ).map(
-                comment => <Comment key={comment.id} comment={comment} />
+                comment => <Comment key={comment.id} comment={ comment } />
               )}
             </div>
           : null
@@ -50,9 +51,6 @@ function mapDispatchToProps(dispatch) {
   return {
     getPost: (id) => dispatch(getPost(id)),
     loadPostComments: (id) => dispatch(loadPostComments(id)),
-    upVotePost: (id) => dispatch(upVotePost(id)),
-    downVotePost: (id) => dispatch(downVotePost(id)),
-    deleteComment: (id)=> dispatch(deleteComment(id))
   }
 }
 

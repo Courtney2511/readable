@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 
 class NewPostForm extends Component {
   render() {
+    const { categories } = this.props
     return (
       <div>
         <h3>Add a Post</h3>
@@ -11,8 +12,8 @@ class NewPostForm extends Component {
           <textarea type='text' name='body'></textarea>
           <div className="category-select">
             <select name='category'>
-              {this.props.categories.map(category => (
-                <option key={ category } value={`${category}`}>{category}</option>
+              { categories.map(category => (
+                <option key={ category } value={`${category}`}>{ category }</option>
               )
               )}
             </select>

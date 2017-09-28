@@ -9,10 +9,11 @@ import { upVoteComment, downVoteComment, deleteComment } from '../actions/commen
 class Comment extends Component {
   render() {
     const { id, voteScore, author, body } = this.props.comment
+    const { upVote, downVote, deleteComment } = this.props
     return (
       <div className='comment-container'>
         <div className='comment-left'>
-          <VoteScore id={ id } score={ voteScore } upVote={this.props.upVote} downVote={this.props.downVote}/>
+          <VoteScore id={ id } score={ voteScore } upVote={ upVote } downVote={ downVote }/>
         </div>
         <div className='comment-middle'>
           <p className='subscript'>{ author } wrote:</p>
@@ -20,7 +21,7 @@ class Comment extends Component {
         </div>
         <div className='comment-right'>
           <button><WriteIcon size={20} /></button>
-          <button onClick={() => this.props.deleteComment(id)}><TrashIcon size={20}/></button>
+          <button onClick={ () => deleteComment(id) }><TrashIcon size={20}/></button>
         </div>
       </div>
     )

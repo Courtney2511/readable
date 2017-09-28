@@ -12,8 +12,6 @@ const initialState = {
   updatedPost: null
 }
 
-
-
 function posts(state=initialState, action) {
   switch(action.type) {
     case GET_POST:
@@ -63,7 +61,8 @@ function posts(state=initialState, action) {
           } else {
             return post
           }
-        })
+        }),
+                  post: null
       }
     default:
       return state

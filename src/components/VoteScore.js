@@ -6,12 +6,12 @@ import PropTypes from 'prop-types'
 
 class VoteScore extends Component {
   render() {
-    console.log('VoteScore props:', this.props)
+    const { upVote, downVote, id, score } = this.props
     return (
       <div className='vote-container'>
-        <button onClick={() => this.props.upVote(this.props.id)}><ArrowUp size={30} color='grey'/></button>
-        <p>{this.props.score}</p>
-        <button onClick={() => this.props.downVote(this.props.id)}><ArrowDown size={30} color='grey'/></button>
+        <button onClick={ () => upVote(id) }><ArrowUp size={30} color='grey'/></button>
+        <p>{ score }</p>
+        <button onClick={ () => downVote(id) }><ArrowDown size={30} color='grey'/></button>
       </div>
     )
   }

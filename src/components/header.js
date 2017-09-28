@@ -11,6 +11,7 @@ class Header extends Component {
   }
 
   render() {
+    const { categories, getPostsByCategory } = this.props
     return (
       <div className='header'>
         <div className='header-left'>
@@ -18,9 +19,9 @@ class Header extends Component {
         </div>
         <div className='header-middle'>
           <ul className='nav'>
-            {this.props.categories.map(category =>
-            <li className='nav-li' key={category}>
-              <Link to={`/${category}`} onClick={() => this.props.getPostsByCategory(category)}>{category}</Link>
+            { categories.map(category =>
+            <li className='nav-li' key={ category }>
+              <Link to={`/${category}`} onClick={() => getPostsByCategory(category)}> { category }</Link>
             </li>)}
           </ul>
         </div>
