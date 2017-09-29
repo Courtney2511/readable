@@ -6,6 +6,7 @@ export const GET_POST = 'GET_POST'
 export const UPVOTE_POST = 'UPVOTE_POST'
 export const DOWNVOTE_POST = 'DOWNVOTE_POST'
 export const DELETE_POST = 'DELETE_POST'
+export const ADD_NEW_POST = 'ADD_NEW_POST'
 
 const headers = { headers: { 'Authorization': 'stuff'} }
 
@@ -64,6 +65,23 @@ export function deletePost(postId) {
   return dispatch => {
     return axios.delete(url, headers).then(result => dispatch({
       type: DELETE_POST,
+      payload: result
+    }))
+  }
+}
+
+export function addNewPost(values) {
+  const url = `http://localhost:3001/posts`
+  return dispatch => {
+    return axios.post(url, {
+      id: values.title,
+      timestamp: Date.now(),
+      title: values.title,
+      body: values.body,
+      author: values.author,
+      category: values.category
+    }, headers).then(result => dispatch({
+      type: ADD_NEW_POST,
       payload: result
     }))
   }

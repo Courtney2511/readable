@@ -42,7 +42,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     getCategories: () => dispatch(getCategories()),
-    getPostsByCategory: (category) => dispatch(getPostsByCategory(category))
+    getPostsByCategory: (category) => dispatch(getPostsByCategory(category)),
   }
 }
 
