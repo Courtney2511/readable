@@ -2,12 +2,14 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { LocalForm, Control } from 'react-redux-form'
 import { addNewPost } from '../actions/posts'
+import { withRouter } from 'react-router'
 
 class NewPostForm extends Component {
 
   handleSubmit(values) {
-    console.log(values)
+    console.log(this.props)
     this.props.addNewPost(values)
+    this.props.history.push('/')
   }
 
   render() {
@@ -43,4 +45,4 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NewPostForm)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NewPostForm))
