@@ -8,6 +8,7 @@ class NewPostForm extends Component {
 
   handleSubmit(values) {
     console.log(this.props)
+    console.log(values)
     this.props.addNewPost(values)
     this.props.history.push('/')
   }
@@ -15,18 +16,18 @@ class NewPostForm extends Component {
   render() {
     const { categories } = this.props
     return (
-      <div>
+      <div className="form-container">
         <h3>Add a Post</h3>
         <LocalForm model="post" onSubmit={ values => this.handleSubmit(values)}>
-          <Control.text model=".title" />
-          <Control.text model=".author" />
-          <Control.textarea model=".body" />
-          <Control.select model=".category">
+          <Control.text model=".title" placeholder="title" />
+          <Control.text model=".author" placeholder="author"/>
+          <Control.textarea model=".body" placeholder="body" />
+          <Control.select model=".category" value="react">
             { categories.map(category => {
               return <option key={category} value={category}>{category}</option>
             })}
           </Control.select>
-          <button type="submit">Submit</button>
+          <button className="submit-button" type="submit">Submit</button>
         </LocalForm>
       </div>
     )

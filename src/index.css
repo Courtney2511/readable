@@ -142,3 +142,41 @@ button {
 .comment-right {
   display: flex;
 }
+
+.form-container {
+  width: 600px;
+  margin: auto;
+  margin-top: 40px;
+  border: 1px solid white;
+  border-radius: 2px;
+  background-color: white;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  text-align: center;
+}
+
+.form-container input,
+textarea, select {
+  margin-top: 15px;
+  width: 300px;
+  height: 25px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  margin-bottom: 10px;
+  border: 1px solid black;
+}
+
+textarea {
+  height: 8em;
+}
+
+.submit-button {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100px;
+  background-color: black;
+  border: none;
+  border-radius: 2px;
+  color: white;
+}
