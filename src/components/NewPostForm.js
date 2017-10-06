@@ -23,6 +23,7 @@ class NewPostForm extends Component {
           <Control.text model=".author" placeholder="author"/>
           <Control.textarea model=".body" placeholder="body" />
           <Control.select model=".category" value="react">
+            <option defaultValue value={null}>Choose...</option>
             { categories.map(category => {
               return <option key={category} value={category}>{category}</option>
             })}
