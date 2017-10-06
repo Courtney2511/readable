@@ -15,7 +15,7 @@ class Header extends Component {
     return (
       <div className='header'>
         <div className='header-left'>
-          <h1><Link to="/">readable</Link></h1>
+          <h1><Link to='/'>readable</Link></h1>
         </div>
         <div className='header-middle'>
           <ul className='nav'>

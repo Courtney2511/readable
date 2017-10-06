@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Post from './Post'
+import PropTypes from 'prop-types'
 
 class PostList extends Component {
 
@@ -15,6 +16,10 @@ class PostList extends Component {
       : null
     )
   }
+}
+
+PostList.PropTypes = {
+  posts: PropTypes.array.isRequired
 }
 
 export default PostList

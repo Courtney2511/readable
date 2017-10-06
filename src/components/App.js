@@ -16,7 +16,7 @@ class App extends Component {
           <Switch>
             <Route exact path='/' component={ PostListContainer }/>
             <Route exact path='/posts/new' component= { NewPostForm } />
-            <Route exact path='/:category' component={ PostList } />
+            <Route exact path='/:category' component={ PostListContainer } />
             <Route exact path='/:category/:postId' component={ PostDetail } />
           </Switch>
       </div>

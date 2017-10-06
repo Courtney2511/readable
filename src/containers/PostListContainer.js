@@ -9,7 +9,6 @@ class PostListContainer extends Component {
   }
 
   render() {
-    console.log(this.props.posts)
     return (
       <PostList posts={this.props.posts}/>
     )

@@ -34,6 +34,10 @@ class PostDetail extends Component {
             </div>
           : null
         }
+        <div>
+          <input></input>
+          <button>Add</button>
+        </div>
       </div>
     )
   }
