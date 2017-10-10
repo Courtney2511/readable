@@ -15,8 +15,8 @@ class NewCommentForm extends Component {
         <LocalForm model="comment" onSubmit={ values => this.handleSubmit(values, this.props.postId) }>
           <Control.text model=".author" placeholder="author"></Control.text>
           <Control.textarea model=".body" placeholder="comment"></Control.textarea>
+          <button className="submit-button" type="submit">Add</button>
         </LocalForm>
-        <button className="submit-button" type="submit">Add</button>
       </div>
     )
   }
@@ -34,4 +34,4 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NewCommentForm)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NewCommentForm))
