@@ -55,7 +55,7 @@ export function addNewComment(values, postId) {
       id: values.title,
       timestap: Date.now(),
       body: values.body,
-      authot: values.author,
+      author: values.author,
       parentId: postId
     }, headers).then(result => dispatch({
       type: ADD_NEW_COMMENT,
