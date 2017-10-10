@@ -52,7 +52,7 @@ export function addNewComment(values, postId) {
   const url = `http://localhost:3001/comments`
   return dispatch => {
     return axios.post(url, {
-      id: values.title,
+      id: Date.now(),
       timestap: Date.now(),
       body: values.body,
       author: values.author,
