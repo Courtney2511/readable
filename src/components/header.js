@@ -26,6 +26,8 @@ class Header extends Component {
           </ul>
         </div>
         <div className="header-right">
+          <button>Sort by Score</button>
+          <button>Sort by Date</button>
           <Link to="/posts/new">New Post</Link>
         </div>
       </div>
