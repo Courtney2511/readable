@@ -4,6 +4,7 @@ export const LOAD_POST_COMMENTS = 'LOAD_POST_COMMENTS'
 export const UPVOTE_COMMENT = 'UPVOTE_COMMENT'
 export const DOWNVOTE_COMMENT = 'DOWNVOTE_COMMENT'
 export const DELETE_COMMENT = 'DELETE_COMMENT'
+export const ADD_NEW_COMMENT = 'ADD_NEW_COMMENT'
 
 const headers = { headers: { 'Authorization': 'stuff'} }
 
@@ -42,6 +43,22 @@ export function deleteComment(commentId) {
   return dispatch => {
     return axios.delete(url, headers).then(result => dispatch({
       type: DELETE_COMMENT,
+      payload: result
+    }))
+  }
+}
+
+export function addNewComment(values, postId) {
+  const url = `http://localhost:3001/comments`
+  return dispatch => {
+    return axios.post(url, {
+      id: values.title,
+      timestap: Date.now(),
+      body: values.body,
+      authot: values.author,
+      parentId: postId
+    }, headers).then(result => dispatch({
+      type: ADD_NEW_COMMENT,
       payload: result
     }))
   }

@@ -4,6 +4,7 @@ import { getPost } from '../actions/posts'
 import { loadPostComments } from '../actions/comments'
 import Post from './Post'
 import Comment from './Comment'
+import NewCommentForm from './NewCommentForm'
 
 class PostDetail extends Component {
 
@@ -14,12 +15,16 @@ class PostDetail extends Component {
 
   render() {
     const { post, comments } = this.props
+    console.log(post)
     return (
       <div>
         <h3>Post Detail Page</h3>
         {
           (post)
-          ? <Post post={ post }/>
+          ? <div>
+              <Post post={ post }/>
+              <NewCommentForm postId={post.id}/>
+            </div> 
           : <div>loading...</div>
         }
         { // display comments if they exist and have not been flaged deleted
@@ -34,10 +39,6 @@ class PostDetail extends Component {
             </div>
           : null
         }
-        <div>
-          <input></input>
-          <button>Add</button>
-        </div>
       </div>
     )
   }
