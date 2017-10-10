@@ -1,7 +1,8 @@
 import { LOAD_POST_COMMENTS,
          UPVOTE_COMMENT,
          DOWNVOTE_COMMENT,
-         DELETE_COMMENT } from '../actions/comments'
+         DELETE_COMMENT,
+         ADD_NEW_COMMENT } from '../actions/comments'
 
 const initialState = {
   comments: []
@@ -9,6 +10,13 @@ const initialState = {
 
 function comments(state=initialState, action) {
   switch(action.type) {
+    case ADD_NEW_COMMENT:
+      const newComment = action.payload.data
+      console.log(newComment)
+      console.log(state.comments)
+      return {
+        ...state, comments: state.comments.push(newComment)
+      }
     case LOAD_POST_COMMENTS:
       const comments = action.payload.data
       return {
