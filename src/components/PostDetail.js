@@ -15,7 +15,6 @@ class PostDetail extends Component {
 
   render() {
     const { post, comments } = this.props
-    console.log(post)
     return (
       <div>
         <h3>Post Detail Page</h3>
@@ -24,17 +23,17 @@ class PostDetail extends Component {
           ? <div>
               <Post post={ post }/>
               <NewCommentForm postId={post.id}/>
-            </div> 
+            </div>
           : <div>loading...</div>
         }
         { // display comments if they exist and have not been flaged deleted
           (comments)
           ? <div className='comments-container'>
-              <h3>Comments:</h3>
+              <h3>this post has { comments.length } comments:</h3>
               { comments.filter(
                 comment => comment.deleted === false
               ).map(
-                comment => <Comment key={comment.id} comment={ comment } />
+                comment => <Comment key={ comment.id } comment={ comment } />
               )}
             </div>
           : null
