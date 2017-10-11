@@ -7,8 +7,6 @@ import { withRouter } from 'react-router'
 class NewPostForm extends Component {
 
   handleSubmit(values) {
-    console.log(this.props)
-    console.log(values)
     this.props.addNewPost(values)
     this.props.history.push('/')
   }
