@@ -30,7 +30,7 @@ class Post extends Component {
           </span>
         </div>
         <div className='post-right'>
-          <Link to={`/${category}/${id}/edit`} post={this.props.post}>
+          <Link to={`/${category}/${id}/edit`}>
             <WriteIcon size={20} />
           </Link>
           <button onClick={ () => deletePost(id) }><TrashIcon size={20}/></button>

@@ -9,19 +9,25 @@ class PostListContainer extends Component {
   }
 
   render() {
+    const { filter, toggleSort } = this.props
+    let { posts } = this.props
 
-    return (
-      (this.props.filter === null)
-      ? (this.props.toggleSort === 'date')
-        ? <PostList posts={this.props.posts.sort((a,b) => b.timestamp - a.timestamp)}/>
-        : <PostList posts={this.props.posts.sort((a,b) => b.voteScore - a.voteScore)}/>
-      : (this.props.toggleSort === 'date')
-        ? <PostList posts={this.props.posts.filter((post) => post.category === this.props.filter).sort((a,b) => b.timestamp - a.timestamp)} />
-        : <PostList posts={this.props.posts.filter((post) => post.category === this.props.filter).sort((a,b) => b.voteScore - a.voteScore)} />
-      )
+    if (filter !== null) {
+        posts = posts.filter(post => post.category === filter)
+    }
+
+    switch (toggleSort) {
+      case 'date':
+        posts = posts.sort((a,b) => b.timestamp - a.timestamp)
+        break;
+      case 'vote':
+      default:
+        posts = posts.sort((a,b) => b.voteScore - a.voteScore)
+    }
+
+    return (<PostList posts={posts}/>)
   }
 }
-
 function mapStateToProps(state) {
   return {
     posts: state.posts.posts,
