@@ -7,12 +7,12 @@ import { withRouter } from 'react-router'
 class EditPostForm extends Component {
 
   handleSubmit(postId, values) {
-    this.props.editPost(this.props.post.id, values)
+    this.props.editPost(postId, values)
     this.props.history.push(`/`)
   }
 
   render() {
-    const { categories, post } = this.props
+    const { post } = this.props
     return (
       (post)
       ? <div className="form-container">
