@@ -15,13 +15,16 @@ class Header extends Component {
     return (
       <div className='header'>
         <div className='header-left'>
-          <h1><Link to='/' onClick={ () => removeFilter() }>readable</Link></h1>
+          <h1><Link to='/' onClick={ () => removeFilter() }
+                    title={`stuff about all things`}>readable</Link></h1>
         </div>
         <div className='header-middle'>
           <ul className='nav'>
             { categories.map(category =>
             <li className='nav-li' key={ category }>
-              <Link to={ `/${category}` } onClick={ () => setFilter(category) }> { category }</Link>
+              <Link to={ `/${category}` }
+                    onClick={ () => setFilter(category) }
+                    title={`stuff about ${category}`}> { category }</Link>
             </li>) }
           </ul>
         </div>
