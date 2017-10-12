@@ -9,10 +9,15 @@ class PostListContainer extends Component {
   }
 
   render() {
+
     return (
       (this.props.filter === null)
-      ? <PostList posts={this.props.posts}/>
-    : <PostList posts={this.props.posts.filter((post) => post.category === this.props.filter)} />
+      ? (this.props.toggleSort === 'date')
+        ? <PostList posts={this.props.posts.sort((a,b) => b.timestamp - a.timestamp)}/>
+        : <PostList posts={this.props.posts.sort((a,b) => b.voteScore - a.voteScore)}/>
+      : (this.props.toggleSort === 'date')
+        ? <PostList posts={this.props.posts.filter((post) => post.category === this.props.filter).sort((a,b) => b.timestamp - a.timestamp)} />
+        : <PostList posts={this.props.posts.filter((post) => post.category === this.props.filter).sort((a,b) => b.voteScore - a.voteScore)} />
       )
   }
 }
@@ -20,7 +25,8 @@ class PostListContainer extends Component {
 function mapStateToProps(state) {
   return {
     posts: state.posts.posts,
-    filter: state.posts.filter
+    filter: state.posts.filter,
+    toggleSort: state.posts.toggleSort
   }
 }
 

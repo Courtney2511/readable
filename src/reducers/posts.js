@@ -5,7 +5,9 @@ import { GET_POSTS,
          GET_POST,
          UPVOTE_POST,
          DOWNVOTE_POST,
-         DELETE_POST } from '../actions/posts'
+         DELETE_POST,
+         ADD_DATE_SORT_TOGGLE,
+         REMOVE_DATE_SORT_TOGGLE } from '../actions/posts'
 
 const initialState = {
   posts: [],
@@ -75,6 +77,15 @@ function posts(state=initialState, action) {
         }),
                   post: null
       }
+    case ADD_DATE_SORT_TOGGLE:
+      console.log('reducer called')
+      return {
+        ...state, toggleSort: 'date'
+      }
+    case REMOVE_DATE_SORT_TOGGLE:
+    return {
+      ...state, toggleSort: 'vote'
+    }
     default:
       return state
   }

@@ -11,6 +11,8 @@ export const SORT_POSTS_BY_VOTE = 'SORT_POSTS_BY_VOTE'
 export const EDIT_POST = 'EDIT_POST'
 export const SET_FILTER = 'SET_FILTER'
 export const REMOVE_FILTER = 'REMOVE_FILTER'
+export const ADD_DATE_SORT_TOGGLE = 'ADD_DATE_SORT_TOGGLE'
+export const REMOVE_DATE_SORT_TOGGLE = 'REMOVE_DATE_SORT_TOGGLE'
 
 const headers = { headers: { 'Authorization': 'stuff'} }
 
@@ -104,12 +106,6 @@ export function addNewPost(values) {
   }
 }
 
-export function sortPostsByVote() {
-  return {
-    type: SORT_POSTS_BY_VOTE,
-  }
-}
-
 export function editPost(postId, values) {
   const url = `http://localhost:3001/posts/${postId}`
   return dispatch => {
@@ -120,5 +116,18 @@ export function editPost(postId, values) {
       type: 'EDIT_POST',
       payload: result
     }))
+  }
+}
+
+export function addDateSortToggle() {
+  console.log('toggle action called')
+  return {
+      type: 'ADD_DATE_SORT_TOGGLE'
+  }
+}
+
+export function removeDateSortToggle() {
+  return {
+    type: 'REMOVE_DATE_SORT_TOGGLE'
   }
 }

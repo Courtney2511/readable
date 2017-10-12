@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { getCategories } from '../actions/categories'
-import { setFilter, removeFilter } from '../actions/posts'
+import { setFilter, removeFilter, addDateSortToggle, removeDateSortToggle } from '../actions/posts'
 
 class Header extends Component {
 
@@ -11,7 +11,7 @@ class Header extends Component {
   }
 
   render() {
-    const { categories, setFilter, removeFilter } = this.props
+    const { categories, setFilter, removeFilter, addDateSortToggle, removeDateSortToggle } = this.props
     return (
       <div className='header'>
         <div className='header-left'>
@@ -26,8 +26,8 @@ class Header extends Component {
           </ul>
         </div>
         <div className="header-right">
-          <button>Sort by Score</button>
-          <button>Sort by Date</button>
+          <button onClick={() => removeDateSortToggle()}>Sort by Score</button>
+          <button onClick={()=> addDateSortToggle()}>Sort by Date</button>
           <Link to="/posts/new">New Post</Link>
         </div>
       </div>
@@ -46,6 +46,8 @@ function mapDispatchToProps(dispatch) {
     getCategories: () => dispatch(getCategories()),
     setFilter: (category) => dispatch(setFilter(category)),
     removeFilter: () => dispatch(removeFilter()),
+    addDateSortToggle: () => dispatch(addDateSortToggle()),
+    removeDateSortToggle: () => dispatch(removeDateSortToggle())
   }
 }
 
