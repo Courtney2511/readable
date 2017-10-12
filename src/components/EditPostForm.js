@@ -1,14 +1,16 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { LocalForm, Control } from 'react-redux-form'
-import { addNewPost } from '../actions/posts'
+import { editPost } from '../actions/posts'
 import { withRouter } from 'react-router'
 
 class EditPostForm extends Component {
 
-  handleSubmit(values) {
-    this.props.editPost(values)
-    this.props.history.push(`/${this.props.post.id}`)
+  handleSubmit(postId, values) {
+    console.log('values', values)
+    console.log('id', this.props.post.id)
+    this.props.editPost(this.props.post.id, values)
+    this.props.history.push(`/`)
   }
 
   render() {
@@ -17,7 +19,7 @@ class EditPostForm extends Component {
       (post)
       ? <div className="form-container">
           <h3>Edit Post</h3>
-          <LocalForm model="post" onSubmit={ values => this.handleSubmit(values)} initialState={ post }>
+          <LocalForm model="post" onSubmit={ values => this.handleSubmit(post.id, values)} initialState={ post }>
             <Control.text model=".title" placeholder="title" />
             <Control.text model=".author" placeholder="author"/>
             <Control.textarea model=".body" placeholder="body" />
@@ -44,7 +46,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    addNewPost: (values) => dispatch(addNewPost(values))
+    editPost: (postId, values) => dispatch(editPost(postId, values))
   }
 }
 

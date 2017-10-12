@@ -8,6 +8,7 @@ export const DOWNVOTE_POST = 'DOWNVOTE_POST'
 export const DELETE_POST = 'DELETE_POST'
 export const ADD_NEW_POST = 'ADD_NEW_POST'
 export const SORT_POSTS_BY_VOTE = 'SORT_POSTS_BY_VOTE'
+export const EDIT_POST = 'EDIT_POST'
 
 const headers = { headers: { 'Authorization': 'stuff'} }
 
@@ -91,5 +92,19 @@ export function addNewPost(values) {
 export function sortPostsByVote() {
   return {
     type: SORT_POSTS_BY_VOTE,
+  }
+}
+
+export function editPost(postId, values) {
+  const url = `http://localhost:3001/posts/${postId}`
+  return dispatch => {
+    console.log('action values', values)
+    return axios.put(url, {
+      title: values.title,
+      body: values.body
+    }, headers).then(result => dispatch({
+      type: 'EDIT_POST',
+      payload: result
+    }))
   }
 }
