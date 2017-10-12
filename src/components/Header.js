@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { getCategories } from '../actions/categories'
-import { getPostsByCategory } from '../actions/posts'
+import { setFilter, removeFilter } from '../actions/posts'
 
 class Header extends Component {
 
@@ -11,18 +11,18 @@ class Header extends Component {
   }
 
   render() {
-    const { categories, getPostsByCategory } = this.props
+    const { categories, setFilter, removeFilter } = this.props
     return (
       <div className='header'>
         <div className='header-left'>
-          <h1><Link to='/'>readable</Link></h1>
+          <h1><Link to='/' onClick={ () => removeFilter() }>readable</Link></h1>
         </div>
         <div className='header-middle'>
           <ul className='nav'>
             { categories.map(category =>
             <li className='nav-li' key={ category }>
-              <Link to={`/${category}`} onClick={() => getPostsByCategory(category)}> { category }</Link>
-            </li>)}
+              <Link to={ `/${category}` } onClick={ () => setFilter(category) }> { category }</Link>
+            </li>) }
           </ul>
         </div>
         <div className="header-right">
@@ -44,7 +44,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     getCategories: () => dispatch(getCategories()),
-    getPostsByCategory: (category) => dispatch(getPostsByCategory(category)),
+    setFilter: (category) => dispatch(setFilter(category)),
+    removeFilter: () => dispatch(removeFilter()),
   }
 }
 

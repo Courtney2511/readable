@@ -1,5 +1,7 @@
 import { GET_POSTS,
          GET_POSTS_BY_CATEGORY,
+         SET_FILTER,
+         REMOVE_FILTER,
          GET_POST,
          UPVOTE_POST,
          DOWNVOTE_POST,
@@ -7,6 +9,7 @@ import { GET_POSTS,
 
 const initialState = {
   posts: [],
+  filter: null,
   post: null,
   comments: [],
   updatedPost: null
@@ -23,6 +26,14 @@ function posts(state=initialState, action) {
       const postsByCategory = action.payload.data
       return {
         ...state, posts: postsByCategory
+      }
+    case SET_FILTER:
+      return {
+        ...state, filter: action.payload
+      }
+    case REMOVE_FILTER:
+      return {
+        ...state, filter: null
       }
     case GET_POSTS:
       const posts = action.payload.data

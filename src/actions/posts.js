@@ -9,6 +9,8 @@ export const DELETE_POST = 'DELETE_POST'
 export const ADD_NEW_POST = 'ADD_NEW_POST'
 export const SORT_POSTS_BY_VOTE = 'SORT_POSTS_BY_VOTE'
 export const EDIT_POST = 'EDIT_POST'
+export const SET_FILTER = 'SET_FILTER'
+export const REMOVE_FILTER = 'REMOVE_FILTER'
 
 const headers = { headers: { 'Authorization': 'stuff'} }
 
@@ -39,6 +41,19 @@ export function getPostsByCategory(category) {
       type: GET_POSTS_BY_CATEGORY,
       payload: result
     }))
+  }
+}
+
+export function setFilter(filter) {
+  return {
+    type: SET_FILTER,
+    payload: filter
+  }
+}
+
+export function removeFilter() {
+  return {
+    type: REMOVE_FILTER,
   }
 }
 

@@ -10,14 +10,17 @@ class PostListContainer extends Component {
 
   render() {
     return (
-      <PostList posts={this.props.posts}/>
-    )
+      (this.props.filter === null)
+      ? <PostList posts={this.props.posts}/>
+    : <PostList posts={this.props.posts.filter((post) => post.category === this.props.filter)} />
+      )
   }
 }
 
 function mapStateToProps(state) {
   return {
-    posts: state.posts.posts
+    posts: state.posts.posts,
+    filter: state.posts.filter
   }
 }
 
