@@ -12,8 +12,6 @@ function comments(state=initialState, action) {
   switch(action.type) {
     case ADD_NEW_COMMENT:
       const newComment = action.payload.data
-      console.log(newComment)
-      console.log(state.comments)
       return {
         ...state, comments: state.comments.push(newComment)
       }

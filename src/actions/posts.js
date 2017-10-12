@@ -98,7 +98,6 @@ export function sortPostsByVote() {
 export function editPost(postId, values) {
   const url = `http://localhost:3001/posts/${postId}`
   return dispatch => {
-    console.log('action values', values)
     return axios.put(url, {
       title: values.title,
       body: values.body

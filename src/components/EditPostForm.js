@@ -7,8 +7,6 @@ import { withRouter } from 'react-router'
 class EditPostForm extends Component {
 
   handleSubmit(postId, values) {
-    console.log('values', values)
-    console.log('id', this.props.post.id)
     this.props.editPost(this.props.post.id, values)
     this.props.history.push(`/`)
   }
