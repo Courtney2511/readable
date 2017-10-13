@@ -1,4 +1,5 @@
 import axios from 'axios'
+import constants from './constants'
 
 export const GET_POSTS = 'GET_POSTS'
 export const GET_POSTS_BY_CATEGORY = 'GET_POSTS_BY_CATEGORY'
@@ -17,7 +18,7 @@ export const REMOVE_DATE_SORT_TOGGLE = 'REMOVE_DATE_SORT_TOGGLE'
 const headers = { headers: { 'Authorization': 'stuff'} }
 
 export function getPost(postId) {
-  const url = `http://localhost:3001/posts/${postId}`
+  const url = `${constants.API_SERVER_URL}/posts/${postId}`
   return dispatch => {
     return axios.get(url, headers).then(result => dispatch({
       type: 'GET_POST',
@@ -27,7 +28,7 @@ export function getPost(postId) {
 }
 
 export function getPosts() {
-  const url = 'http://localhost:3001/posts'
+  const url = `${constants.API_SERVER_URL}/posts`
   return dispatch => {
     return axios.get(url, headers).then(result => dispatch({
       type: GET_POSTS,
@@ -37,7 +38,7 @@ export function getPosts() {
 }
 
 export function getPostsByCategory(category) {
-  const url = `http://localhost:3001/${category}/posts`
+  const url = `${constants.API_SERVER_URL}/${category}/posts`
   return dispatch => {
     return axios.get(url, headers).then(result => dispatch({
       type: GET_POSTS_BY_CATEGORY,
@@ -60,7 +61,7 @@ export function removeFilter() {
 }
 
 export function upVotePost(postId) {
-  const url = `http://localhost:3001/posts/${postId}`
+  const url = `${constants.API_SERVER_URL}/posts/${postId}`
   return dispatch => {
     return axios.post(url, {"option": "upVote"}, headers).then(result => dispatch({
       type: UPVOTE_POST,
@@ -70,7 +71,7 @@ export function upVotePost(postId) {
 }
 
 export function downVotePost(postId) {
-  const url = `http://localhost:3001/posts/${postId}`
+  const url = `${constants.API_SERVER_URL}/posts/${postId}`
   return dispatch => {
     return axios.post(url, {"option": "downVote"}, headers).then(result => dispatch({
       type: DOWNVOTE_POST,
@@ -80,7 +81,7 @@ export function downVotePost(postId) {
 }
 
 export function deletePost(postId) {
-  const url = `http://localhost:3001/posts/${postId}`
+  const url = `${constants.API_SERVER_URL}/posts/${postId}`
   return dispatch => {
     return axios.delete(url, headers).then(result => dispatch({
       type: DELETE_POST,
@@ -90,7 +91,7 @@ export function deletePost(postId) {
 }
 
 export function addNewPost(values) {
-  const url = `http://localhost:3001/posts`
+  const url = `${constants.API_SERVER_URL}/posts`
   return dispatch => {
     return axios.post(url, {
       id: values.title,
@@ -107,7 +108,7 @@ export function addNewPost(values) {
 }
 
 export function editPost(postId, values) {
-  const url = `http://localhost:3001/posts/${postId}`
+  const url = `${constants.API_SERVER_URL}/posts/${postId}`
   return dispatch => {
     return axios.put(url, {
       title: values.title,
