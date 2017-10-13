@@ -26,13 +26,11 @@ class PostDetail extends Component {
             </div>
           : null
         }
-        { // display comments if they exist and have not been flaged deleted
+        { // display comments if they exist
           (comments)
           ? <div className='comments-container'>
               <h3>this post has { comments.length } comments:</h3>
-              { comments.filter(
-                comment => comment.deleted === false
-              ).map(
+              { comments.map(
                 comment => <Comment key={ comment.id } comment={ comment } />
               )}
             </div>
