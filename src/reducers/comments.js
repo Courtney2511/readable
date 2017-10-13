@@ -2,7 +2,8 @@ import { LOAD_POST_COMMENTS,
          UPVOTE_COMMENT,
          DOWNVOTE_COMMENT,
          DELETE_COMMENT,
-         ADD_NEW_COMMENT } from '../actions/comments'
+         ADD_NEW_COMMENT,
+         GET_COMMENT } from '../actions/comments'
 
 const initialState = {
   comments: []
@@ -52,6 +53,11 @@ function comments(state=initialState, action) {
           return comment
         }
       })
+    }
+    case GET_COMMENT:
+    const comment = action.payload.data
+    return {
+      ...state, comment: comment
     }
     default:
       return state

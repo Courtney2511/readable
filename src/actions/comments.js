@@ -7,6 +7,7 @@ export const DOWNVOTE_COMMENT = 'DOWNVOTE_COMMENT'
 export const DELETE_COMMENT = 'DELETE_COMMENT'
 export const ADD_NEW_COMMENT = 'ADD_NEW_COMMENT'
 export const GET_COMMENT = 'GET_COMMENT'
+export const EDIT_COMMENT = 'EDIT_COMMENT'
 
 const headers = { headers: { 'Authorization': 'stuff'} }
 
@@ -71,6 +72,18 @@ export function getComment(id) {
   return dispatch => {
     return axios.get(url, headers).then(result => dispatch({
       type: GET_COMMENT,
+      payload: result
+    }))
+  }
+}
+
+export function editComment(id, values) {
+  const url = `${constants.API_SERVER_URL}/comments/${id}`
+  return dispatch => {
+    return axios.put(url, {
+      body: values.body
+    }, headers).then(result => dispatch({
+      type: EDIT_COMMENT,
       payload: result
     }))
   }

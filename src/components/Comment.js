@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import VoteScore from './VoteScore'
 import TrashIcon from 'react-icons/lib/ti/trash'
 import WriteIcon from 'react-icons/lib/ti/pencil'
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { upVoteComment, downVoteComment, deleteComment } from '../actions/comments'
 
@@ -20,8 +21,8 @@ class Comment extends Component {
           <p className='comment-body'>{ body }</p>
         </div>
         <div className='comment-right'>
-          <button><WriteIcon size={20} /></button>
-          <button onClick={ () => deleteComment(id) }><TrashIcon size={20}/></button>
+          <Link to={`/comments/${id}/edit`} title="edit this comment"><WriteIcon size={20} /></Link>
+          <button onClick={ () => deleteComment(id) } title="delete this comment"><TrashIcon size={20}/></button>
         </div>
       </div>
     )
@@ -38,7 +39,7 @@ function mapDispatchToProps(dispatch) {
   return {
       upVote: (id) => dispatch(upVoteComment(id)),
       downVote: (id) => dispatch(downVoteComment(id)),
-      deleteComment: (id) => dispatch(deleteComment(id))
+      deleteComment: (id) => dispatch(deleteComment(id)),
   }
 }
 
