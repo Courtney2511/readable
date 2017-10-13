@@ -46,13 +46,7 @@ function comments(state=initialState, action) {
     case DELETE_COMMENT:
     const deletedComment = action.payload.data
     return {
-      ...state, comments: state.comments.map(comment => {
-        if (comment.id === deletedComment.id) {
-          return deletedComment
-        } else {
-          return comment
-        }
-      })
+      ...state, comments: state.comments.filter(comment => comment.id !== deletedComment.id)
     }
     case GET_COMMENT:
     const comment = action.payload.data
