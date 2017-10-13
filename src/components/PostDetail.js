@@ -24,7 +24,7 @@ class PostDetail extends Component {
               <Post post={ post }/>
               <NewCommentForm postId={post.id}/>
             </div>
-          : <div>loading...</div>
+          : null
         }
         { // display comments if they exist and have not been flaged deleted
           (comments)

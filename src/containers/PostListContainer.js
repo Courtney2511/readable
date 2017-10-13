@@ -24,8 +24,7 @@ class PostListContainer extends Component {
       default:
         posts = posts.sort((a,b) => b.voteScore - a.voteScore)
     }
-
-    return (<PostList posts={posts}/>)
+    return (<PostList posts={posts} />)
   }
 }
 function mapStateToProps(state) {
@@ -38,7 +37,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    getPosts: () => dispatch(getPosts())
+    getPosts: () => dispatch(getPosts()),
   }
 }
 

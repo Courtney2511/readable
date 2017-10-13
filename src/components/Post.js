@@ -42,6 +42,7 @@ class Post extends Component {
 
 Post.PropTypes = {
   post: PropTypes.object.isRequired,
+  deletePost: PropTypes.func.isRequired
 }
 
 function mapStateToProps(state) {

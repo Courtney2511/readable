@@ -68,13 +68,7 @@ function posts(state=initialState, action) {
     case DELETE_POST:
       const deletedPost = action.payload.data
       return {
-        ...state, posts: state.posts.map(post => {
-          if (post.id === deletedPost.id) {
-            return deletedPost
-          } else {
-            return post
-          }
-        }),
+        ...state, posts: state.posts.filter(post => (post.id !== deletedPost.id)),
                   post: null
       }
     case ADD_DATE_SORT_TOGGLE:
