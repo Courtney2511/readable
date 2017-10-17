@@ -11,12 +11,12 @@ class NewCommentForm extends Component {
 
   render() {
     return (
-      <div className="form-container">
-        <h3>Add a comment:</h3>
+      <div className="new-comment-form">
+        <h4 className="new-comment-header">Say something:</h4>
         <LocalForm model="comment" onSubmit={ values => this.handleSubmit(values, this.props.postId) }>
           <Control.text model=".author" placeholder="author"></Control.text>
           <Control.textarea model=".body" placeholder="comment"></Control.textarea>
-          <button className="submit-button" type="submit">Add</button>
+          <button className="submit-button comment-btn" type="submit">Add</button>
         </LocalForm>
       </div>
     )

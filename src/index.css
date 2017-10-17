@@ -111,6 +111,7 @@ button {
 
 .post-right {
   display: flex;
+  border-bottom: 1px solid black;
 }
 
 /* Post Detail Styles */
@@ -142,6 +143,32 @@ button {
 
 .comment-right {
   display: flex;
+  border-bottom: 1px solid grey;
+}
+
+.comments-title {
+  margin-top: 15px;
+  text-align: left;
+}
+
+.new-comment-header {
+  text-align: left;
+  margin-left: 50px;
+  padding-top: 20px;
+}
+
+.new-comment-form {
+ text-align: left;
+}
+
+.new-comment-form textarea, input {
+  margin: 5px;
+  display: block;
+  margin-left: 50px;
+}
+
+.comment-btn {
+  margin-left: 50px;
 }
 
 .form-container {
@@ -159,8 +186,8 @@ button {
 textarea,
 select {
   margin-top: 15px;
-  width: 300px;
-  height: 25px;
+  width: 500px;
+  height: 15px;
   outline: 0;
   background: transparent;
   margin-bottom: 10px;
@@ -170,6 +197,7 @@ select {
 textarea {
   height: 8em;
 }
+
 
 .submit-button {
   display: block;

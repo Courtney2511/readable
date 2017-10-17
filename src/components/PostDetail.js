@@ -17,23 +17,26 @@ class PostDetail extends Component {
     const { post, comments } = this.props
     return (
       <div>
-        <h3>Post Detail Page</h3>
         {
           (post)
           ? <div>
               <Post post={ post }/>
-              <NewCommentForm postId={post.id}/>
             </div>
           : null
         }
         { // display comments if they exist
           (comments)
           ? <div className='comments-container'>
-              <h3>this post has { comments.length } comments:</h3>
+              <h3 className='comments-title'>{ comments.length } comments:</h3>
               { comments.map(
                 comment => <Comment key={ comment.id } comment={ comment } />
               )}
             </div>
+          : null
+        }
+        {
+          (post)
+          ? <NewCommentForm postId={post.id}/>
           : null
         }
       </div>
