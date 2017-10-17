@@ -7,16 +7,19 @@ class PostList extends Component {
   render() {
     const { posts } = this.props
     return (
-      (posts)
-      ? <div className='posts-container'>
-          { posts.map(post =>
+      <div className='posts-container'>
+        { (posts)
+          ? posts.map(post =>
             <Post key={ post.id } post={post} />
-          )}
-        </div>
-      : null
-        (posts.length === 0)
-        ? <div>there are no posts in this category yet</div>
-        : null
+            )
+          : null
+        }
+        {
+          (posts.length === 0)
+          ? <div>there are no posts in this category yet</div>
+          : null
+        }
+      </div>
     )
   }
 }
