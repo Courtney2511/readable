@@ -14,6 +14,9 @@ class PostList extends Component {
           )}
         </div>
       : null
+        (posts.length === 0)
+        ? <div>there are no posts in this category yet</div>
+        : null
     )
   }
 }

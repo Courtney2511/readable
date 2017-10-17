@@ -11,7 +11,7 @@ import { upVotePost, downVotePost, deletePost } from '../actions/posts'
 class Post extends Component {
 
   render() {
-    const { voteScore, category, id, title, body, timestamp, author } = this.props.post
+    const { voteScore, category, id, title, body, timestamp, author, commentCount } = this.props.post
     const { upVote, downVote, deletePost } = this.props
     return (
       <div className='post-container'>
@@ -26,7 +26,11 @@ class Post extends Component {
           <p className='post-body'>{ body }</p>
           <span className='subscript'>
             <p>submitted @ <FormattedDate date={ timestamp } /> by { author }</p>
-            <p># comments</p>
+            {
+              (commentCount > 0)
+              ? <p>{`${commentCount}`} comments</p>
+              : <p>No comments on this post yet!</p>
+            }
           </span>
         </div>
         <div className='post-right'>
