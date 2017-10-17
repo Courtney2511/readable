@@ -91,10 +91,11 @@ export function deletePost(postId) {
 }
 
 export function addNewPost(values) {
+  const uuid = require('uuid/v1')
   const url = `${constants.API_SERVER_URL}/posts`
   return dispatch => {
     return axios.post(url, {
-      id: values.title,
+      id: uuid(),
       timestamp: Date.now(),
       title: values.title,
       body: values.body,

@@ -52,10 +52,11 @@ export function deleteComment(commentId) {
 }
 
 export function addNewComment(values, postId) {
+  const uuid = require('uuid/v1')
   const url = `${constants.API_SERVER_URL}/comments`
   return dispatch => {
     return axios.post(url, {
-      id: Date.now(),
+      id: uuid(),
       timestap: Date.now(),
       body: values.body,
       author: values.author,
