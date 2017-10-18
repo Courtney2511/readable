@@ -26,7 +26,6 @@ button {
 .header {
   padding-top: 20px;
   display: flex;
-  border-bottom: 1px solid black;
 }
 
 .header-left {
@@ -74,6 +73,10 @@ button {
 }
 
 /* Post list styles */
+
+.posts-container {
+  border-top: 1px solid black;
+}
 
 .post-container {
   display: flex;
