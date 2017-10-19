@@ -14,7 +14,7 @@ function comments(state=initialState, action) {
     case ADD_NEW_COMMENT:
       const newComment = action.payload.data
       return {
-        ...state, comments: state.comments.push(newComment)
+        ...state, comments: [...state.comments, newComment]
       }
     case LOAD_POST_COMMENTS:
       const comments = action.payload.data
