@@ -1,7 +1,14 @@
+/* General Styles */
+
 * {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Roboto';
+  /*border: solid 1px red;*/
+}
+
+html, body {
+  min-height: 100%;
 }
 
 a {
@@ -23,9 +30,22 @@ button {
   box-shadow: none;
 }
 
+button:focus {
+  outline: none;
+}
+
+/* Header Component */
+
 .header {
-  padding-top: 20px;
+  padding-top: 40px;
   display: flex;
+  background-color: #00796B;
+  box-shadow: 0 2px 2px -2px gray;
+}
+
+.header h1 {
+  padding-left: 20px;
+  color: #FFFFFF;
 }
 
 .header-left {
@@ -43,10 +63,16 @@ button {
 .header-right {
   display: flex;
   justify-content: flex-end;
+  padding-right: 30px;
+}
+
+.header-right > button {
+  font-size: 8px;
+  color: #fff;
 }
 
 .header-right > a {
-  color: red;
+  color: #FFFFFF;
   float: right;
 }
 
@@ -60,10 +86,12 @@ button {
   display: inline;
   padding: 2px 10px;
   margin-right: 5px;
+  color: #FFFFFF;
+  background-color: #009688;
   vertical-align: baseline;
-  border-top: 1px solid black;
+  /*border-top: 1px solid black;
   border-left: 1px solid black;
-  border-right: 1px solid black;
+  border-right: 1px solid black;*/
 }
 
 /* VoteScore Component */
@@ -75,11 +103,24 @@ button {
 /* Post list styles */
 
 .posts-container {
-  border-top: 1px solid black;
+  background-color: #fff;
+  padding: 20px;
+  min-height: 100%;
+}
+
+.postlist-container > div:last-child > div {
+  border: none;
+}
+
+.postlist-container {
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
 .post-container {
+  background-color: #fff;
   display: flex;
+  width: 100%;
 }
 
 .post-left {
@@ -103,8 +144,13 @@ button {
   border-bottom: 1px solid grey;
 }
 
+.post-middle > p {
+  margin-bottom: 5px;
+}
+
 .post-body {
   padding-top: 10px;
+  color: #757575;
 }
 
 .subscript {
@@ -114,16 +160,31 @@ button {
 
 .post-right {
   display: flex;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid grey;
 }
 
 /* Post Detail Styles */
 
+.post-detail-container {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.post-detail-container > div > div {
+  border: none;
+}
+
 .comments-container {
   margin-left: 50px;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
 /* Comment Component Styles */
+
+.comments-container > h3 {
+  padding-left: 5px;
+  padding-top: 5px;
+}
 
 .comment-container {
   display: flex;
@@ -154,6 +215,8 @@ button {
   text-align: left;
 }
 
+/* Form Styles */
+
 .new-comment-header {
   text-align: left;
   margin-left: 50px;
@@ -161,13 +224,24 @@ button {
 }
 
 .new-comment-form {
- text-align: left;
+  background-color: #fff;
+  text-align: left;
+  margin-left: 50px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
 .new-comment-form textarea, input {
   margin: 5px;
   display: block;
   margin-left: 50px;
+  border: 0;
+  border-bottom: 1px solid grey;
+  padding: 10px 5px;
+  background: white no-repeat;
+}
+
+.new-comment-form textarea {
+  height: 2em;
 }
 
 .comment-btn {
@@ -194,11 +268,14 @@ select {
   outline: 0;
   background: transparent;
   margin-bottom: 10px;
-  border: 1px solid black;
+  border: 0;
+  border-bottom: 1px solid grey;
+  padding: 10px 5px;
+  background: white no-repeat;
 }
 
 textarea {
-  height: 8em;
+  height: 2em;
 }
 
 

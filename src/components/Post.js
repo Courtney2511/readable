@@ -16,28 +16,25 @@ class Post extends Component {
     return (
       <div className='post-container'>
         <div className='post-left'>
-          <div className='rank'>
-            <span>1</span>
-          </div>
           <VoteScore id={ id } score={ voteScore } upVote={ upVote } downVote={ downVote }/>
         </div>
         <div className='post-middle'>
           <Link to={`/${category}/${id}`}><h3>{ title }</h3></Link>
           <p className='post-body'>{ body }</p>
           <span className='subscript'>
-            <p>submitted @ <FormattedDate date={ timestamp } /> by { author }</p>
+            <p><FormattedDate date={ timestamp } /> by { author }</p>
             {
               (commentCount > 0)
               ? <p>{`${commentCount}`} comments</p>
-              : <p>No comments on this post yet!</p>
+              : <p>No comments yet!</p>
             }
           </span>
         </div>
         <div className='post-right'>
           <Link to={`/${category}/${id}/edit`}>
-            <WriteIcon size={20} />
+            <WriteIcon size={20} color='#FFC107'/>
           </Link>
-          <button onClick={ () => deletePost(id) }><TrashIcon size={20}/></button>
+          <button onClick={ () => deletePost(id) }><TrashIcon size={20} color='red'/></button>
         </div>
       </div>
     )

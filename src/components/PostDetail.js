@@ -15,11 +15,12 @@ class PostDetail extends Component {
 
   render() {
     const { post, comments } = this.props
+    console.log('post:', post)
     return (
       <div className='posts-container'>
         {
           (post)
-          ? <div>
+          ? <div className='post-detail-container'>
               <Post post={ post }/>
             </div>
           : null
@@ -28,7 +29,7 @@ class PostDetail extends Component {
           (comments)
           ? <div className='comments-container'>
               <h3 className='comments-title'>{ comments.length } comments:</h3>
-              { comments.map(
+              { comments.filter(comment => comment.parentDeleted === false).map(
                 comment => <Comment key={ comment.id } comment={ comment } />
               )}
             </div>

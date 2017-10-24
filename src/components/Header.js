@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { getCategories } from '../actions/categories'
 import { setFilter, removeFilter, addDateSortToggle, removeDateSortToggle } from '../actions/posts'
+import AddNew from 'react-icons/lib/ti/document-add'
+import List from 'react-icons/lib/ti/th-list'
 
 class Header extends Component {
 
@@ -29,9 +31,9 @@ class Header extends Component {
           </ul>
         </div>
         <div className="header-right">
-          <button onClick={() => removeDateSortToggle()}>Sort by Score</button>
-          <button onClick={()=> addDateSortToggle()}>Sort by Date</button>
-          <Link to="/posts/new">New Post</Link>
+          <button onClick={() => removeDateSortToggle()}><List size={20}></List>Score</button>
+          <button onClick={()=> addDateSortToggle()}><List size={20}></List>Date</button>
+          <Link to="/posts/new" title='add new post'><AddNew size={30}></AddNew></Link>
         </div>
       </div>
     )

@@ -16,7 +16,9 @@ class NewCommentForm extends Component {
         <LocalForm model="comment" onSubmit={ values => this.handleSubmit(values, this.props.postId) }>
           <Control.text model=".author" placeholder="author"></Control.text>
           <Control.textarea model=".body" placeholder="comment"></Control.textarea>
-          <button className="submit-button comment-btn" type="submit">Add</button>
+          <div>
+            <button className="submit-button comment-btn" type="submit">Add</button>
+          </div>
         </LocalForm>
       </div>
     )
