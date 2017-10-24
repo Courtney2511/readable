@@ -122,7 +122,6 @@ export function editPost(postId, values) {
 }
 
 export function addDateSortToggle() {
-  console.log('toggle action called')
   return {
       type: 'ADD_DATE_SORT_TOGGLE'
   }

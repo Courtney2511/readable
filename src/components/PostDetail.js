@@ -15,7 +15,6 @@ class PostDetail extends Component {
 
   render() {
     const { post, comments } = this.props
-    console.log('post:', post)
     return (
       <div className='posts-container'>
         {

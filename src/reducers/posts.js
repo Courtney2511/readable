@@ -72,7 +72,6 @@ function posts(state=initialState, action) {
                   post: null
       }
     case ADD_DATE_SORT_TOGGLE:
-      console.log('reducer called')
       return {
         ...state, toggleSort: 'date'
       }
