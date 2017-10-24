@@ -15,30 +15,34 @@ class PostDetail extends Component {
 
   render() {
     const { post, comments } = this.props
+    let postDetail = null
+    let commentList = null
+    let commentForm = null
+
+    if (post) {
+      postDetail =  <div className='post-detail-container'>
+                      <Post post={ post }/>
+                    </div>
+      commentForm = <NewCommentForm postId={post.id}/>
+    } else {
+      postDetail =  <div>
+                      <h3>Post does not exist</h3>
+                    </div>
+    }
+    if (comments) {
+      commentList = <div className='comments-container'>
+                      <h3 className='comments-title'>{ comments.length } comments:</h3>
+                        { comments.filter(comment => comment.parentDeleted === false).map(
+                          comment => <Comment key={ comment.id } comment={ comment } />
+                        )}
+                    </div>
+    }
+
     return (
       <div className='posts-container'>
-        {
-          (post)
-          ? <div className='post-detail-container'>
-              <Post post={ post }/>
-            </div>
-          : null
-        }
-        { // display comments if they exist
-          (comments)
-          ? <div className='comments-container'>
-              <h3 className='comments-title'>{ comments.length } comments:</h3>
-              { comments.filter(comment => comment.parentDeleted === false).map(
-                comment => <Comment key={ comment.id } comment={ comment } />
-              )}
-            </div>
-          : null
-        }
-        {
-          (post)
-          ? <NewCommentForm postId={post.id}/>
-          : null
-        }
+        { postDetail }
+        { commentList }
+        { commentForm }
       </div>
     )
   }
