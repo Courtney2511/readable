@@ -41,7 +41,7 @@ class Post extends Component {
   }
 }
 
-Post.PropTypes = {
+Post.propTypes = {
   post: PropTypes.object.isRequired,
   deletePost: PropTypes.func.isRequired
 }

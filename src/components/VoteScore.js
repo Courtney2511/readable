@@ -17,7 +17,7 @@ class VoteScore extends Component {
   }
 }
 
-VoteScore.PropTypes = {
+VoteScore.propTypes = {
   id: PropTypes.number.isRequired,
   score: PropTypes.number.isRequired,
   upVote: PropTypes.func.isRequired,

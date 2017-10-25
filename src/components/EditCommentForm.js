@@ -6,15 +6,12 @@ import { withRouter } from 'react-router'
 
 class EditCommentForm extends Component {
   handleSubmit(id, values) {
-    console.log(id, values)
     this.props.editComment(id, values)
     this.props.history.goBack()
   }
 
   render() {
     const { comment } = this.props
-    console.log(comment)
-    console.log(this.props.history)
     return (
       (comment)
       ? <div className='form-container'>
@@ -27,6 +24,12 @@ class EditCommentForm extends Component {
       : null
     )
   }
+}
+
+EditCommentForm.propTypes = {
+  comment: PropTypes.object.isRequired,
+  editComment: PropTypes.func.isRequired
+
 }
 
 
