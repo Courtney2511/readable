@@ -39,11 +39,11 @@ class PostDetail extends Component {
     }
 
     return (
-      <div className='posts-container'>
+      <article className='media'>
         { postDetail }
         { commentList }
         { commentForm }
-      </div>
+      </article>
     )
   }
 }

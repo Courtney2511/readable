@@ -31,6 +31,7 @@ class NewPostForm extends Component {
           </LocalForm>
         </div>
       </div>
+
     )
   }
 }

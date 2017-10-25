@@ -4,6 +4,7 @@ import ArrowDown from 'react-icons/lib/ti/arrow-sorted-down'
 import PropTypes from 'prop-types'
 
 
+
 class VoteScore extends Component {
   render() {
     const { upVote, downVote, id, score } = this.props
