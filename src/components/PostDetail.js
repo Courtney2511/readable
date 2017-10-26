@@ -20,30 +20,34 @@ class PostDetail extends Component {
     let commentForm = null
 
     if (post) {
-      postDetail =  <div className='post-detail-container'>
-                      <Post post={ post }/>
-                    </div>
+      postDetail = <Post post={ post }/>
       commentForm = <NewCommentForm postId={post.id}/>
+
+        if (comments) {
+          commentList = <article>
+                          <h3>{ comments.length } comments:</h3>
+                            { comments.filter(comment => comment.parentDeleted === false).map(
+                              comment => <Comment key={ comment.id } comment={ comment } />
+                            )}
+                        </article>
+        }
     } else {
       postDetail =  <div>
                       <h3>Post does not exist</h3>
                     </div>
     }
-    if (comments) {
-      commentList = <div className='comments-container'>
-                      <h3 className='comments-title'>{ comments.length } comments:</h3>
-                        { comments.filter(comment => comment.parentDeleted === false).map(
-                          comment => <Comment key={ comment.id } comment={ comment } />
-                        )}
-                    </div>
-    }
+
 
     return (
-      <article className='media'>
-        { postDetail }
-        { commentList }
-        { commentForm }
-      </article>
+      <section className='section'>
+        <div className='container'>
+          <article className='media'>
+            { postDetail }
+            { commentList }
+          </article>
+          { commentForm }
+        </div>
+      </section>
     )
   }
 }

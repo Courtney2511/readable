@@ -12,7 +12,7 @@ class Comment extends Component {
     const { id, voteScore, author, body } = this.props.comment
     const { upVote, downVote, deleteComment } = this.props
     return (
-      <div className='comment-container'>
+      <article className=''>
         <div className='comment-left'>
           <VoteScore id={ id } score={ voteScore } upVote={ upVote } downVote={ downVote }/>
         </div>
@@ -22,9 +22,10 @@ class Comment extends Component {
         </div>
         <div className='comment-right'>
           <Link to={`/comments/${id}/edit`} title="edit this comment"><WriteIcon size={20} /></Link>
-          <button onClick={ () => deleteComment(id) } title="delete this comment"><TrashIcon size={20}/></button>
+          <button onClick={ () => deleteComment(id) } title="delete this comment" className='button is-white'>
+            <TrashIcon size={20}/></button>
         </div>
-      </div>
+      </article>
     )
   }
 }

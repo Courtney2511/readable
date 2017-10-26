@@ -212,10 +212,17 @@ button:focus {
   text-align: left;
 }*/
 
+.navbar {
+  padding-top: 40px;
+}
+
+
+
 /* Form Styles */
 
-/*.new-comment-header {
-  text-align: left;
-  margin-left: 50px;
-  padding-top: 20px;
-}*/
+
+.form-container {
+  width: 60%;
+  margin: 0 auto;
+  padding-top: 40px;
+}

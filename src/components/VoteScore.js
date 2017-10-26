@@ -10,9 +10,11 @@ class VoteScore extends Component {
     const { upVote, downVote, id, score } = this.props
     return (
       <div className='vote-container'>
-        <button onClick={ () => upVote(id) }><ArrowUp size={30} color='#FFC107'/></button>
+        <button onClick={ () => upVote(id) } className='button is-white'>
+          <ArrowUp size={30} color='#FFC107'/></button>
         <p>{ score }</p>
-        <button onClick={ () => downVote(id) }><ArrowDown size={30} color='#FFC107'/></button>
+        <button onClick={ () => downVote(id) } className='button is-white'>
+          <ArrowDown size={30} color='#FFC107'/></button>
       </div>
     )
   }
