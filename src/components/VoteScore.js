@@ -12,7 +12,7 @@ class VoteScore extends Component {
       <div className='vote-container'>
         <button onClick={ () => upVote(id) } className='button is-white'>
           <ArrowUp size={30} color='#FFC107'/></button>
-        <p>{ score }</p>
+        <p className='has-text-centered'>{ score }</p>
         <button onClick={ () => downVote(id) } className='button is-white'>
           <ArrowDown size={30} color='#FFC107'/></button>
       </div>
