@@ -32,7 +32,7 @@ class PostDetail extends Component {
                         </article>
         }
     } else {
-      postDetail =  <div>
+      postDetail =  <div className='notification is-danger'>
                       <h3>Post does not exist</h3>
                     </div>
     }
@@ -43,8 +43,11 @@ class PostDetail extends Component {
         <div className='container'>
           <article className='media'>
             { postDetail }
-            { commentList }
           </article>
+          <div className='media'>
+            { commentList }
+          </div>
+
           { commentForm }
         </div>
       </section>

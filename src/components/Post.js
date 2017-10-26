@@ -14,30 +14,33 @@ class Post extends Component {
     const { voteScore, category, id, title, body, timestamp, author, commentCount } = this.props.post
     const { upVote, downVote, deletePost } = this.props
     return (
-      <article className='media'>
-        <div className='media-left'>
-          <VoteScore id={ id } score={ voteScore } upVote={ upVote } downVote={ downVote }/>
-        </div>
-        <div className='media-content'>
-          <Link to={`/${category}/${id}`}><h3>{ title }</h3></Link>
-          <p>{ body }</p>
-          <span>
-            <p><FormattedDate date={ timestamp } /> by { author }</p>
-            {
-              (commentCount > 0)
-              ? <p>{`${commentCount}`} comments</p>
-              : <p>No comments yet!</p>
-            }
-          </span>
-        </div>
-        <div>
-          <Link to={`/${category}/${id}/edit`} className='button is-white'>
-            <WriteIcon size={20} color='#FFC107'/>
-          </Link>
-          <button onClick={ () => deletePost(id) } className='button is-white'>
-            <TrashIcon size={20} color='red'/></button>
-        </div>
-      </article>
+      <div className='container'>
+        <article className='media'>
+          <div className='media-left'>
+            <VoteScore id={ id } score={ voteScore } upVote={ upVote } downVote={ downVote }/>
+          </div>
+          <div className='media-content'>
+            <Link to={`/${category}/${id}`}><h3>{ title }</h3></Link>
+            <p>{ body }</p>
+            <span>
+              <p><FormattedDate date={ timestamp } /> by { author }</p>
+              {
+                (commentCount > 0)
+                ? <p>{`${commentCount}`} comments</p>
+                : <p>No comments yet!</p>
+              }
+            </span>
+          </div>
+          <div>
+            <Link to={`/${category}/${id}/edit`} className='button is-white'>
+              <WriteIcon size={20} color='#FFC107'/>
+            </Link>
+            <button onClick={ () => deletePost(id) } className='button is-white'>
+              <TrashIcon size={20} color='red'/></button>
+          </div>
+        </article>
+      </div>
+
     )
   }
 }
