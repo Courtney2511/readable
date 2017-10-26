@@ -31,7 +31,7 @@ class Post extends Component {
           </span>
         </div>
         <div>
-          <Link to={`/${category}/${id}/edit`}>
+          <Link to={`/${category}/${id}/edit`} className='button is-white'>
             <WriteIcon size={20} color='#FFC107'/>
           </Link>
           <button onClick={ () => deletePost(id) } className='button is-white'>
