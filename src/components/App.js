@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import '../App.css'
 import 'bulma/css/bulma.css'
 import Header from './Header'
+import Footer from './Footer'
 import PostListContainer from '../containers/PostListContainer'
 import NewPostForm from './NewPostForm'
 import PostDetail from './PostDetail'
@@ -23,8 +24,8 @@ class App extends Component {
             <Route exact path='/comments/:commentId/edit'
                    component={ EditCommentContainer} />
             <Route exact path='/:category/:postId/edit' component={ EditPostContainer } />
-
           </Switch>
+        <Footer />
       </div>
     )
   }
