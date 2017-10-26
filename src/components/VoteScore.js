@@ -4,14 +4,17 @@ import ArrowDown from 'react-icons/lib/ti/arrow-sorted-down'
 import PropTypes from 'prop-types'
 
 
+
 class VoteScore extends Component {
   render() {
     const { upVote, downVote, id, score } = this.props
     return (
       <div className='vote-container'>
-        <button onClick={ () => upVote(id) }><ArrowUp size={30} color='#FFC107'/></button>
+        <button onClick={ () => upVote(id) } className='button is-white'>
+          <ArrowUp size={30} color='#FFC107'/></button>
         <p>{ score }</p>
-        <button onClick={ () => downVote(id) }><ArrowDown size={30} color='#FFC107'/></button>
+        <button onClick={ () => downVote(id) } className='button is-white'>
+          <ArrowDown size={30} color='#FFC107'/></button>
       </div>
     )
   }

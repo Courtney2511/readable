@@ -1,6 +1,6 @@
 /* General Styles */
 
-* {
+/** {
   margin: 0;
   padding: 0;
   font-family: 'Roboto';
@@ -15,9 +15,9 @@ a {
   text-decoration: none;
   display: flex;
   align-items: center;
-}
+}*/
 
-a:visited {
+/*a:visited {
   color: inherit;
 }
 
@@ -32,11 +32,11 @@ button {
 
 button:focus {
   outline: none;
-}
+}*/
 
 /* Header Component */
 
-.header {
+/*.header {
   padding-top: 40px;
   display: flex;
   background-color: #00796b;
@@ -89,17 +89,17 @@ button:focus {
   color: #fff;
   background-color: #009688;
   vertical-align: baseline;
-}
+}*/
 
 /* VoteScore Component */
 
-.vote-container {
+/*.vote-container {
   color: grey;
-}
+}*/
 
 /* Post list styles */
 
-.posts-container {
+/*.posts-container {
   background-color: #fff;
   padding: 20px;
   min-height: 100%;
@@ -159,10 +159,10 @@ button:focus {
   display: flex;
   border-bottom: 1px solid grey;
 }
-
+*/
 /* Post Detail Styles */
 
-.post-detail-container {
+/*.post-detail-container {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
@@ -174,11 +174,11 @@ button:focus {
   margin-left: 50px;
   background-color: #fff;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-}
+}*/
 
 /* Comment Component Styles */
 
-.comments-container > h3 {
+/*.comments-container > h3 {
   padding-left: 5px;
   padding-top: 5px;
 }
@@ -210,79 +210,19 @@ button:focus {
 .comments-title {
   margin-top: 15px;
   text-align: left;
+}*/
+
+.navbar {
+  padding-top: 40px;
 }
+
+
 
 /* Form Styles */
 
-.new-comment-header {
-  text-align: left;
-  margin-left: 50px;
-  padding-top: 20px;
-}
-
-.new-comment-form {
-  background-color: #fff;
-  text-align: left;
-  margin-left: 50px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  padding-bottom: 20px;
-}
-
-.new-comment-form textarea,
-input {
-  margin: 5px;
-  display: block;
-  margin-left: 50px;
-  border: 0;
-  border-bottom: 1px solid grey;
-  padding: 10px 5px;
-  background: white no-repeat;
-}
-
-.new-comment-form textarea {
-  height: 2em;
-}
-
-.comment-btn {
-  margin-left: 50px;
-}
 
 .form-container {
-  width: 600px;
-  margin: auto;
-  margin-top: 40px;
-  border: 1px solid white;
-  border-radius: 2px;
-  background-color: white;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  text-align: center;
-}
-
-.form-container input,
-textarea,
-select {
-  margin-top: 15px;
-  width: 500px;
-  height: 15px;
-  outline: 0;
-  margin-bottom: 10px;
-  border: 0;
-  border-bottom: 1px solid grey;
-  padding: 10px 5px;
-}
-
-textarea {
-  height: 2em;
-}
-
-.submit-button {
-  display: block;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-left: 50px;
-  width: 100px;
-  background-color: black;
-  border: none;
-  border-radius: 2px;
-  color: white;
+  width: 60%;
+  margin: 0 auto;
+  padding-top: 40px;
 }

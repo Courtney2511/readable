@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import '../App.css'
+import 'bulma/css/bulma.css'
 import Header from './Header'
 import PostListContainer from '../containers/PostListContainer'
 import NewPostForm from './NewPostForm'

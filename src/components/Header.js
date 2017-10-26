@@ -15,27 +15,37 @@ class Header extends Component {
   render() {
     const { categories, setFilter, removeFilter, addDateSortToggle, removeDateSortToggle } = this.props
     return (
-      <div className='header'>
-        <div className='header-left'>
-          <h1><Link to='/' onClick={ () => removeFilter() }
-                    title={`stuff about all things`}>readable</Link></h1>
-        </div>
-        <div className='header-middle'>
-          <ul className='nav'>
-            { categories.map(category =>
-            <li className='nav-li' key={ category }>
-              <Link to={ `/${category}` }
-                    onClick={ () => setFilter(category) }
-                    title={`stuff about ${category}`}> { category }</Link>
-            </li>) }
-          </ul>
-        </div>
-        <div className="header-right">
-          <button onClick={() => removeDateSortToggle()}><List size={20}></List>Score</button>
-          <button onClick={()=> addDateSortToggle()}><List size={20}></List>Date</button>
-          <Link to="/posts/new" title='add new post'><AddNew size={30}></AddNew></Link>
-        </div>
+      <div className='hero'>
+        <nav className='navbar'>
+          <div>
+            <Link to='/' onClick={ () => removeFilter() }
+                      title={`stuff about all things`} className='navbar-item'>readable</Link>
+          </div>
+          <div className='navbar-menu'>
+            <div className='navbar-start tabs is-boxed'>
+              <ul>
+                { categories.map(category =>
+                  <li className='is-active'><Link to={ `/${category}` }
+                        onClick={ () => setFilter(category) }
+                        title={`stuff about ${category}`}
+                        className='navbar-item'> { category }
+                  </Link></li>
+                  )
+                }
+              </ul>
+            </div>
+            <div className='navbar-end'>
+              <button onClick={() => removeDateSortToggle()} className='button is-white'>
+                <List size={20}></List>Score</button>
+              <button onClick={()=> addDateSortToggle()} className='button is-white'>
+                <List size={20}></List>Date</button>
+              <Link to="/posts/new" title='add new post'><AddNew size={30}></AddNew></Link>
+            </div>
+          </div>
+
+        </nav>
       </div>
+
     )
   }
 }
