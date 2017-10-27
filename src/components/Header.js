@@ -34,12 +34,14 @@ class Header extends Component {
                 }
             </div>
             <div className='navbar-end is-active'>
-              <div className='field is-grouped'>
-                <button onClick={() => removeDateSortToggle()} className='button is-white'>
-                  <List size={20}></List>Score</button>
-                <button onClick={()=> addDateSortToggle()} className='button is-white'>
-                  <List size={20}></List>Date</button>
-                <Link to="/posts/new" title='add new post'><AddNew size={30}></AddNew></Link>
+              <div className='navbar-item'>
+                <div className='field is-grouped'>
+                  <button onClick={() => removeDateSortToggle()} className='button is-white'>
+                    <List size={20}></List>Score</button>
+                  <button onClick={()=> addDateSortToggle()} className='button is-white'>
+                    <List size={20}></List>Date</button>
+                  <Link to="/posts/new" title='add new post'><AddNew size={30}></AddNew></Link>
+                </div>
               </div>
             </div>
           </div>
