@@ -44,11 +44,12 @@ class PostDetail extends Component {
           <article className='media'>
             { postDetail }
           </article>
-          <div className='media'>
-            { commentList }
+          <div className='comments-container'>
+            <div className='media'>
+              { commentList }
+            </div>
+            { commentForm }
           </div>
-
-          { commentForm }
         </div>
       </section>
     )

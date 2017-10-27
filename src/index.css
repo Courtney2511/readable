@@ -160,6 +160,10 @@
   padding-top: 40px;
 }
 
+.logo {
+  font-size: 30px;
+}
+
 
 
 /* Form Styles */
@@ -169,4 +173,9 @@
   width: 60%;
   margin: 0 auto;
   padding-top: 40px;
+}
+
+.comments-container {
+  margin-left: 50px;
+  padding-top: 50px;
 }
