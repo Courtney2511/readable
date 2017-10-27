@@ -18,7 +18,7 @@ class Comment extends Component {
           <p>{ author } wrote:</p>
           <p>{ body }</p>
         </div>
-        <div className='comment-right'>
+        <div className='field is-grouped'>
           <Link to={`/comments/${id}/edit`} title="edit this comment" className='button is-white'>
             <WriteIcon size={20} /></Link>
           <button onClick={ () => deleteComment(id) } title="delete this comment" className='button is-white'>

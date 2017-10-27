@@ -1,77 +1,5 @@
-/* General Styles */
 
-/* Header Component */
-
-/*.header {
-  padding-top: 40px;
-  display: flex;
-  background-color: #00796b;
-  box-shadow: 0 2px 2px -2px gray;
-}
-
-.header h1 {
-  padding-left: 20px;
-  color: #fff;
-}
-
-.header-left {
-  display: inline;
-  float: left;
-  width: 25%;
-}
-
-.header-middle {
-  display: flex;
-  float: right;
-  width: 75%;
-}
-
-.header-right {
-  display: flex;
-  justify-content: flex-end;
-  padding-right: 30px;
-}
-
-.header-right > button {
-  font-size: 8px;
-  color: #fff;
-}
-
-.header-right > a {
-  color: #fff;
-  float: right;
-}
-
-.nav {
-  list-style-type: none;
-  display: flex;
-  align-items: flex-end;
-}
-
-.nav li {
-  display: inline;
-  padding: 2px 10px;
-  margin-right: 5px;
-  color: #fff;
-  background-color: #009688;
-  vertical-align: baseline;
-}*/
-
-
-/* Post list styles */
-
-/*.posts-container {
-  background-color: #fff;
-  padding: 20px;
-  min-height: 100%;
-}
-
-
-.postlist-container {
-  background-color: #fff;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-}
-
+/*
 .post-container {
   background-color: #fff;
   display: flex;
@@ -146,10 +74,6 @@
   padding-top: 10px;
 }
 
-.comment-right {
-  display: flex;
-  border-bottom: 1px solid grey;
-}
 
 .comments-title {
   margin-top: 15px;
@@ -162,6 +86,11 @@
 
 .logo {
   font-size: 30px;
+}
+
+.subscript {
+  font-size: 12px;
+  color: grey;
 }
 
 

@@ -14,7 +14,7 @@ class Post extends Component {
     const { voteScore, category, id, title, body, timestamp, author, commentCount } = this.props.post
     const { upVote, downVote, deletePost } = this.props
     return (
-      <div className='container'>
+      <div className='container box'>
         <article className='media'>
           <div className='media-left'>
             <VoteScore id={ id } score={ voteScore } upVote={ upVote } downVote={ downVote }/>
@@ -22,7 +22,7 @@ class Post extends Component {
           <div className='media-content'>
             <Link to={`/${category}/${id}`}><h3>{ title }</h3></Link>
             <p>{ body }</p>
-            <span>
+            <span className='subscript'>
               <p><FormattedDate date={ timestamp } /> by { author }</p>
               {
                 (commentCount > 0)

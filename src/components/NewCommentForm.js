@@ -14,13 +14,17 @@ class NewCommentForm extends Component {
       <div className="new-comment-form">
         <h4 className="new-comment-header">Say something:</h4>
         <LocalForm model="comment" onSubmit={ values => this.handleSubmit(values, this.props.postId) }>
-          <div className="control">
-            <Control.text className="input" model=".author" placeholder="author"></Control.text>
+          <div className='field'>
+            <div className="control">
+              <Control.text className="input" model=".author" placeholder="author"></Control.text>
+            </div>
+          </div>
+          <div className='field'>
+            <div className="control">
+              <Control.textarea className="textarea" model=".body" placeholder="comment"></Control.textarea>
+            </div>
           </div>
           <div className="control">
-            <Control.textarea className="textarea" model=".body" placeholder="comment"></Control.textarea>
-          </div>
-          <div className="contorl">
             <button className="button is-link" type="submit">Add</button>
           </div>
         </LocalForm>

@@ -45,10 +45,12 @@ class PostDetail extends Component {
             { postDetail }
           </article>
           <div className='comments-container'>
-            <div className='media'>
-              { commentList }
+            <div className='box'>
+              <div className='media'>
+                { commentList }
+              </div>
+              { commentForm }
             </div>
-            { commentForm }
           </div>
         </div>
       </section>
