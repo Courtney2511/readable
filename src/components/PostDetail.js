@@ -19,7 +19,7 @@ class PostDetail extends Component {
     let commentList = null
     let commentForm = null
 
-    if (post) {
+    if (post && post.deleted === false) {
       postDetail = <Post post={ post }/>
       commentForm = <NewCommentForm postId={post.id}/>
 
