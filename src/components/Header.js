@@ -25,7 +25,7 @@ class Header extends Component {
           <div className='navbar-menu is-active'>
             <div className='navbar-start navbar-tabs'>
                 { categories.map(category =>
-                    <Link to={ `/${category}` }
+                    <Link key={category} to={ `/${category}` }
                         onClick={ () => setFilter(category) }
                         title={`stuff about ${category}`}
                         className='navbar-item is-tab'> { category }
