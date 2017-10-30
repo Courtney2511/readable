@@ -29,7 +29,6 @@ class PostList extends Component {
 
 PostList.propTypes = {
   posts: PropTypes.array.isRequired,
-  deletePost: PropTypes.func.isRequired
 }
 
 export default PostList
