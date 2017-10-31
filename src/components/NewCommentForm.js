@@ -1,19 +1,28 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { LocalForm, Control } from 'react-redux-form'
+import { LocalForm, Control, actions } from 'react-redux-form'
 import { addNewComment } from '../actions/comments'
 import { withRouter } from 'react-router'
 
 class NewCommentForm extends Component {
   handleSubmit(values, postId) {
     this.props.addNewComment(values, postId)
+    this.formDispatch(actions.change('comment.body', ''))
   }
 
+  attachDispatch(dispatch) {
+    this.formDispatch = dispatch
+  }
+
+
   render() {
+    console.log(actions)
     return (
       <div className="new-comment-form">
         <h4 className="new-comment-header">Say something:</h4>
-        <LocalForm model="comment" onSubmit={ values => this.handleSubmit(values, this.props.postId) }>
+        <LocalForm model="comment"
+                   getDispatch={(dispatch) => this.attachDispatch(dispatch)}
+                   onSubmit={ values => this.handleSubmit(values, this.props.postId) }>
           <div className='field'>
             <div className="control">
               <Control.text className="input" model=".author" placeholder="author"></Control.text>

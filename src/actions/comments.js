@@ -8,6 +8,7 @@ export const DELETE_COMMENT = 'DELETE_COMMENT'
 export const ADD_NEW_COMMENT = 'ADD_NEW_COMMENT'
 export const GET_COMMENT = 'GET_COMMENT'
 export const EDIT_COMMENT = 'EDIT_COMMENT'
+export const CLEAR_COMMENT_FIELD = 'CLEAR_COMMENT_FIELD'
 
 const headers = { headers: { 'Authorization': 'stuff'} }
 
