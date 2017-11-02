@@ -11,16 +11,52 @@ class EditPostForm extends Component {
     this.props.history.push(`/`)
   }
 
+  goBack() {
+    this.props.history.goBack()
+  }
+
   render() {
-    const { post } = this.props
+    const { post, categories } = this.props
     return (
       (post)
       ? <div className="form-container">
           <h3>Edit Post</h3>
           <LocalForm model="post" onSubmit={ values => this.handleSubmit(post.id, values)} initialState={ post }>
-            <Control.text model=".title" placeholder="title" />
-            <Control.textarea model=".body" placeholder="body" />
-            <button className="submit-button" type="submit">Submit</button>
+            <div className='field'>
+              <div className='control'>
+                <Control.text  className='input' model=".title" placeholder="title" />
+              </div>
+            </div>
+            <div className='field'>
+              <div className='control'>
+                <Control.text className='input' model=".author" placeholder="author"/>
+              </div>
+            </div>
+            <div className='field'>
+              <div className='control'>
+                <Control.textarea className='textarea' model=".body" placeholder="body" />
+              </div>
+            </div>
+            <div className='field'>
+              <div className='control'>
+                <Control.select className='select' model=".category" value="react">
+                  <option defaultValue value={null}>Choose...</option>
+                  { categories.map(category => {
+                    return <option key={category} value={category}>{category}</option>
+                  })}
+                </Control.select>
+              </div>
+            </div>
+
+            <div className='field is-grouped'>
+              <div className='control'>
+                <button className="button is-primary" type="submit">Submit</button>
+              </div>
+              <div className='control'>
+                <button className='button is-danger' type='button'
+                  onClick={() => this.goBack()}>Cancel</button>
+              </div>
+            </div>
           </LocalForm>
         </div>
       : null
