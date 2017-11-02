@@ -14,12 +14,17 @@ class EditCommentForm extends Component {
     const { comment } = this.props
     return (
       (comment)
-      ? <div className='form-container'>
-          <h3>Edit Comment</h3>
-          <LocalForm model="comment" onSubmit={values => this.handleSubmit(comment.id, values)} initialState={this.props.comment}>
-            <Control.textarea model=".body" placeholder="body" />
-            <button className="submit-button" type="submit">Submit</button>
-          </LocalForm>
+      ? <div className='media'>
+          <div className='media-content'>
+            <LocalForm model="comment" onSubmit={values => this.handleSubmit(comment.id, values)} initialState={this.props.comment}>
+              <div className='field'>
+                <div className='control'>
+                  <Control.textarea model=".body" placeholder="body" className='input' />
+                </div>
+              </div>
+              <button className="submit-button" type="submit">Submit</button>
+            </LocalForm>
+          </div>
         </div>
       : null
     )
