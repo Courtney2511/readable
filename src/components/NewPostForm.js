@@ -53,7 +53,8 @@ class NewPostForm extends Component {
                 <button className="button is-primary" type="submit">Submit</button>
               </div>
               <div className='control'>
-                <button className='button is-danger' onClick={() => this.goBack()}>Cancel</button>
+                <button className='button is-danger' type='button'
+                  onClick={() => this.goBack()}>Cancel</button>
               </div>
             </div>
           </LocalForm>
