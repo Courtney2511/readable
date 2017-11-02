@@ -11,6 +11,10 @@ class NewPostForm extends Component {
     this.props.history.push('/')
   }
 
+  goBack() {
+    this.props.history.goBack()
+  }
+
   render() {
     const { categories } = this.props
     return (
@@ -44,8 +48,13 @@ class NewPostForm extends Component {
               </div>
             </div>
 
-            <div className='control'>
-              <button className="button" type="submit">Submit</button>
+            <div className='field is-grouped'>
+              <div className='control'>
+                <button className="button is-primary" type="submit">Submit</button>
+              </div>
+              <div className='control'>
+                <button className='button is-danger' onClick={() => this.goBack()}>Cancel</button>
+              </div>
             </div>
           </LocalForm>
         </div>
