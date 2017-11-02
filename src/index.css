@@ -1,85 +1,3 @@
-
-/*
-.post-container {
-  background-color: #fff;
-  display: flex;
-  width: 100%;
-}
-
-.post-middle {
-  width: 80%;
-  text-align: left;
-  padding: 10px;
-  border-bottom: 1px solid grey;
-}
-
-.post-middle > p {
-  margin-bottom: 5px;
-}
-
-.post-body {
-  padding-top: 10px;
-  color: #757575;
-}
-
-.subscript {
-  font-size: 12px;
-  color: grey;
-}
-
-.post-right {
-  display: flex;
-  border-bottom: 1px solid grey;
-}
-*/
-/* Post Detail Styles */
-
-/*.post-detail-container {
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-}
-
-.post-detail-container > div > div {
-  border: none;
-}
-
-.comments-container {
-  margin-left: 50px;
-  background-color: #fff;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-}*/
-
-/* Comment Component Styles */
-
-/*.comments-container > h3 {
-  padding-left: 5px;
-  padding-top: 5px;
-}
-
-.comment-container {
-  display: flex;
-}
-
-.comment-left {
-  color: grey;
-}
-
-.comment-middle {
-  width: 80%;
-  text-align: left;
-  padding: 10px;
-  border-bottom: 1px solid grey;
-}
-
-.comment-body {
-  padding-top: 10px;
-}
-
-
-.comments-title {
-  margin-top: 15px;
-  text-align: left;
-}*/
-
 .navbar {
   padding-top: 40px;
 }
@@ -94,7 +12,6 @@
 }
 
 /* Form Styles */
-
 
 .form-container {
   width: 60%;
