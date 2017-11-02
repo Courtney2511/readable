@@ -22,7 +22,12 @@ class EditCommentForm extends Component {
                   <Control.textarea model=".body" placeholder="body" className='input' />
                 </div>
               </div>
-              <button className="submit-button" type="submit">Submit</button>
+              <div className='field is-grouped'>
+                <div className='control'>
+                  <button className="button is-primary" type="submit">Submit</button>
+                </div>
+              </div>
+
             </LocalForm>
           </div>
         </div>
