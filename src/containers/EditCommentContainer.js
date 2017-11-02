@@ -1,16 +1,19 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getComment, editComment } from '../actions/comments'
+import { getComment, editComment, clearComment } from '../actions/comments'
 import EditCommentForm from '../components/EditCommentForm'
 
 class EditCommentContainer extends Component {
   componentDidMount() {
-    this.props.getComment(this.props.match.params.commentId)
+    // const com = this.props.getComment(this.props.match.params.commentId)
+    // console.log(com)
   }
   render() {
-    const { comment, editComment } = this.props
+    const { comment, editComment, clearComment } = this.props
     return (
-      <EditCommentForm comment={ comment } editComment={ editComment }/>
+      (comment)
+      ? <EditCommentForm comment={ comment } editComment={ editComment } clearComment= { clearComment }/>
+      : null
     )
   }
 }
@@ -24,7 +27,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     getComment: (id) => dispatch(getComment(id)),
-    editComment: (id, values) => dispatch(editComment(id, values))
+    editComment: (id, values) => dispatch(editComment(id, values)),
+    clearComment: () => dispatch(clearComment())
   }
 }
 

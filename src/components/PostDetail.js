@@ -5,6 +5,7 @@ import { loadPostComments } from '../actions/comments'
 import Post from './Post'
 import Comment from './Comment'
 import NewCommentForm from './NewCommentForm'
+import EditCommentContainer from '../containers/EditCommentContainer'
 
 class PostDetail extends Component {
 
@@ -14,7 +15,7 @@ class PostDetail extends Component {
   }
 
   render() {
-    const { post, comments } = this.props
+    const { post, comments, comment } = this.props
     let postDetail = null
     let commentList = null
     let commentForm = null
@@ -27,7 +28,10 @@ class PostDetail extends Component {
           commentList = <article>
                           <h3>{ comments.length } comments:</h3>
                             { comments.filter(comment => comment.parentDeleted === false).map(
-                              comment => <Comment key={ comment.id } comment={ comment } />
+                              comment => (
+                                (this.props.comment && this.props.comment.id === comment.id)
+                                ?  <EditCommentContainer key={comment.id} comment={ comment} />
+                                :  <Comment key={ comment.id } comment={ comment } />)
                             )}
                         </article>
         }
@@ -62,7 +66,8 @@ function mapStateToProps(state) {
   return {
     posts: state.posts,
     post: state.posts.post,
-    comments: state.comments.comments
+    comments: state.comments.comments,
+    comment: state.comments.comment
   }
 }
 

@@ -3,7 +3,10 @@ import { LOAD_POST_COMMENTS,
          DOWNVOTE_COMMENT,
          DELETE_COMMENT,
          ADD_NEW_COMMENT,
-         GET_COMMENT } from '../actions/comments'
+         GET_COMMENT,
+         EDIT_COMMENT,
+         CLEAR_COMMENT,
+         SELECT_COMMENT } from '../actions/comments'
 
 const initialState = {
   comments: []
@@ -49,10 +52,31 @@ function comments(state=initialState, action) {
       ...state, comments: state.comments.filter(comment => comment.id !== deletedComment.id)
     }
     case GET_COMMENT:
-    const comment = action.payload.data
-    return {
-      ...state, comment: comment
-    }
+      const comment = action.payload.data
+      return {
+        ...state, comment: comment
+      }
+    case EDIT_COMMENT:
+      const updatedComment = action.payload.data
+      return {
+        ...state, comments: state.comments.map(comment => {
+          if (comment.id === updatedComment.id) {
+            return updatedComment
+          } else {
+            return comment
+          }
+        })
+      }
+    case CLEAR_COMMENT:
+      return {
+        ...state, comment: null
+      }
+    case SELECT_COMMENT:
+      const id = action.payload
+      console.log(action)
+      return {
+        ...state, comment: state.comments.find(comment => comment.id === id)
+      }
     default:
       return state
   }

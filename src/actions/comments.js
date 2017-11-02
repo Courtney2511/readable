@@ -8,7 +8,8 @@ export const DELETE_COMMENT = 'DELETE_COMMENT'
 export const ADD_NEW_COMMENT = 'ADD_NEW_COMMENT'
 export const GET_COMMENT = 'GET_COMMENT'
 export const EDIT_COMMENT = 'EDIT_COMMENT'
-export const CLEAR_COMMENT_FIELD = 'CLEAR_COMMENT_FIELD'
+export const CLEAR_COMMENT = 'CLEAR_COMMENT'
+export const SELECT_COMMENT = 'SELECT_COMMENT'
 
 const headers = { headers: { 'Authorization': 'stuff'} }
 
@@ -88,5 +89,19 @@ export function editComment(id, values) {
       type: EDIT_COMMENT,
       payload: result
     }))
+  }
+}
+
+export function clearComment() {
+  return {
+    type: CLEAR_COMMENT,
+  }
+}
+
+export function selectComment(id) {
+  console.log('action was called')
+  return {
+    type: SELECT_COMMENT,
+    payload: id
   }
 }

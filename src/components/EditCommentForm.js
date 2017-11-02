@@ -7,7 +7,7 @@ import { withRouter } from 'react-router'
 class EditCommentForm extends Component {
   handleSubmit(id, values) {
     this.props.editComment(id, values)
-    this.props.history.goBack()
+    this.props.clearComment()
   }
 
   render() {
@@ -28,7 +28,8 @@ class EditCommentForm extends Component {
 
 EditCommentForm.propTypes = {
   comment: PropTypes.object.isRequired,
-  editComment: PropTypes.func.isRequired
+  editComment: PropTypes.func.isRequired,
+  clearComment: PropTypes.func.isRequired
 
 }
 
