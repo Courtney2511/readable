@@ -16,7 +16,6 @@ class NewCommentForm extends Component {
 
 
   render() {
-    console.log(actions)
     return (
       <div className="new-comment-form">
         <h4 className="new-comment-header">Say something:</h4>

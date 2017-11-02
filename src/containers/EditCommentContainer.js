@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getComment, editComment, clearComment } from '../actions/comments'
+import { editComment, clearComment } from '../actions/comments'
 import EditCommentForm from '../components/EditCommentForm'
 
 class EditCommentContainer extends Component {
@@ -26,9 +26,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    getComment: (id) => dispatch(getComment(id)),
     editComment: (id, values) => dispatch(editComment(id, values)),
-    clearComment: () => dispatch(clearComment())
+    clearComment: () => dispatch(clearComment()),
   }
 }
 

@@ -73,7 +73,6 @@ function comments(state=initialState, action) {
       }
     case SELECT_COMMENT:
       const id = action.payload
-      console.log(action)
       return {
         ...state, comment: state.comments.find(comment => comment.id === id)
       }

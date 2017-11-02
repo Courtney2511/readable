@@ -99,7 +99,6 @@ export function clearComment() {
 }
 
 export function selectComment(id) {
-  console.log('action was called')
   return {
     type: SELECT_COMMENT,
     payload: id
